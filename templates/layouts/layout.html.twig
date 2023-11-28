@@ -83,7 +83,9 @@
 
     {{ block('content') }}
 
+    {% if not editmode %}
     {{ pimcore_inc(document.getProperty('footer')) }}
+    {% endif %}
 
     {% block headscripts deferred %}
     {{ pimcore_head_script() }}
