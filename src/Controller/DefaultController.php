@@ -33,9 +33,4 @@ class DefaultController extends FrontendController
         return [];
     }
 
-    #[Template('about/index.html.twig')]
-    public function aboutAction(Request $request)
-    {
-        return [];
-    }
 }

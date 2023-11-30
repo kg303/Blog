@@ -43,7 +43,7 @@
                         {% set mainNavigation = pimcore_build_nav({active: document, root: navStartNode}) %}
                         {% set menuRenderer = pimcore_nav_renderer('menu') %}
                             <ul class="menu-container">
-                                <li class="menu-item current">
+                                <li class="menu-item">
                                     <a class="menu-link {{ document.id == navStartNode.id ? 'active' }}"
                                        href="{{ navStartNode }}">{{ navStartNode.title }}
                                     </a>
@@ -54,7 +54,7 @@
                                     {% set hasChildren = page.hasPages() %}
 
                                     {% if not hasChildren %}
-                                        <li class="menu-item current">
+                                        <li class="menu-item">
                                             <a class="menu-link {{ document.id == page.id ? 'active' }}"
                                                href="{{ page.getHref() }}">
                                                 {{ page.getLabel()|trans }}
@@ -69,17 +69,24 @@
                                                 {{ page.getLabel()|trans }}
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown_{{ page.id }}">
+                                                <li>
+                                                    <a class="dropdown-item" href="{{ page.getHref() }}">{{ page.getLabel()|trans }}</a>
+                                                </li>
                                                 {% for child in page.getPages() %}
                                                     {% if child.isVisible() and menuRenderer.accept(page) %}
-                                                        <li><a class="dropdown-item" href="{{ child.getHref() }}">{{ child.getLabel()|trans }}</a></li>
+                                                        <li>
+                                                            <a class="dropdown-item" href="{{ child.getHref() }}">{{ child.getLabel()|trans }}</a>
+                                                        </li>
                                                     {% endif %}
                                                 {% endfor %}
                                             </ul>
                                         </li>
 
+
                                     {% endif %}
                                 {% endif %}
                             {% endfor %}
+                            </ul>
 
                     </nav><!-- #primary-menu end -->
                     {% endif %}

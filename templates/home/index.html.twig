@@ -1,5 +1,7 @@
 {% extends 'layouts/layout.html.twig' %}
 
 {% block content %}
-    {{ pimcore_areablock('content') }}
+ {{ pimcore_areablock('teste', {
+     "allowed": "gallery-carousel"
+ }) }}
 {% endblock %}
