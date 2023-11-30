@@ -1,1002 +1,703 @@
-<!-- Full template used for backup! -->
-
 <!DOCTYPE html>
-<html lang="{{ app.request.locale }}">
+<html>
+
 <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="SemiColonWeb" />
-
-    {% apply spaceless %}
-
-        <!-- Stylesheets
-        ============================================= -->
-        {% do pimcore_head_link().appendStylesheet("https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Montserrat:300,400,500,600,700|Merriweather:300,400,300i,400i&display=swap") %}
-        {% do pimcore_head_link().appendStylesheet(asset("static/css/bootstrap.css")) %}
-        {% do pimcore_head_link().appendStylesheet(asset("static/style.css")) %}
-        {% do pimcore_head_link().appendStylesheet(asset("static/css/dark.css")) %}
-        {% do pimcore_head_link().appendStylesheet(asset("static/css/swiper.css")) %}
-
-
-        {% do pimcore_head_link().appendStylesheet(asset("static/demos/ecommerce/ecommerce.css")) %}
-        {% do pimcore_head_link().appendStylesheet(asset("static/demos/ecommerce/css/fonts.css")) %}
+    <title>Edgecut</title>
 
 
-        {% do pimcore_head_link().appendStylesheet(asset("static/css/font-icons.css")) %}
-        {% do pimcore_head_link().appendStylesheet(asset("static/css/animate.css")) %}
-        {% do pimcore_head_link().appendStylesheet(asset("static/css/magnific-popup.css")) %}
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-        {% do pimcore_head_link().appendStylesheet(asset("static/css/custom.css")) %}
-        <meta name="viewport" content="static/width=device-width, initial-scale=1" />
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
 
-        {% do pimcore_head_link().appendStylesheet(asset("static/css/colors.php?color=000000")) %}
-        {% do pimcore_head_script().appendFile(asset("static/js/jquery.js")) %}
-        {% do pimcore_head_script().appendFile(asset("static/js/plugins.min.js")) %}
-        {% do pimcore_head_script().appendFile(asset("static/js/functions.js")) %}
-
-
-
-        {% if not document is defined or not document %}
-            {% set document = pimcore_document(1) %}
-        {% endif %}
-
-        {% if document is instanceof('\\Pimcore\\Model\\Document\\Link') %}
-            {# @var document \Pimcore\Model\Document\Link #}
-            {% set document = document.getElement() %}
-        {% endif %}
-
-        {% if document is instanceof('\\Pimcore\\Model\\Document\\Page') %}
-            {% if document.getTitle() is not empty %}
-                {% do pimcore_head_title().set(document.getTitle()) %}
-            {% endif %}
-
-            {% if document.getDescription() is not empty %}
-                {% do pimcore_head_meta().setDescription(document.getDescription()) %}
-            {% endif %}
-
-            {% do pimcore_head_title().append('Project: Pimcore') %}
-            {% do pimcore_head_title().setSeparator(' : ') %}
-        {% endif %}
-
-        {% set isPortal = ((isPortal is defined) and isPortal) %}
-    {% endapply %}
-
-    {# we're using the deferred extension here to make sure this block is rendered after all helper calls #}
-    {% block layout_head_meta deferred %}
-    {{ pimcore_head_title() }}
-    {{ pimcore_head_meta() }}
-
-    {% if pimcore_placeholder('canonical').count() %}
-        <link rel="canonical" href="{{ pimcore_placeholder('canonical') }}"/>
-    {% endif %}
-
-    {% endblock %}
-
-    {% block head_stylesheets deferred %}
-    {{ pimcore_head_link() }}
-    {% endblock %}
-
-    <!-- Document Title
-    ============================================= -->
-    <title>Canvas Shop | Canvas</title>
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
 
 </head>
 
-<body class="stretched">
+<body>
 
-<!-- Document Wrapper
-============================================= -->
-<div id="wrapper" class="clearfix">
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section long_section px-0">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+          <span>
+            Edgecut
+          </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> </span>
+            </button>
 
-    <!-- Top Bar
-    ============================================= -->
-    <div id="top-bar" class="dark">
-        <div class="container py-3">
-            <p class="center mb-0 clearfix">Back to the future of awesome Bags: Introducing canvas market. <a href="#">Shop Now</a><a href="#" id="close-bar" class="float-right border-bottom-0"><i class="icon-line-cross"></i></a></p>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+                    <ul class="navbar-nav  ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html"> About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="furniture.html">Furnitures</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="quote_btn-container">
+                    <a href="">
+              <span>
+                Login
+              </span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </a>
+                    <form class="form-inline">
+                        <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section long_section">
+        <div id="customCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="detail-box">
+                                    <h1>
+                                        For All Your <br>
+                                        Furniture Needs
+                                    </h1>
+                                    <p>
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus quidem maiores perspiciatis, illo maxime voluptatem a itaque suscipit.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Contact Us
+                                        </a>
+                                        <a href="" class="btn2">
+                                            About Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="img-box">
+                                    <img src="images/slider-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="detail-box">
+                                    <h1>
+                                        For All Your <br>
+                                        Furniture Needs
+                                    </h1>
+                                    <p>
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus quidem maiores perspiciatis, illo maxime voluptatem a itaque suscipit.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Contact Us
+                                        </a>
+                                        <a href="" class="btn2">
+                                            About Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="img-box">
+                                    <img src="images/slider-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="detail-box">
+                                    <h1>
+                                        For All Your <br>
+                                        Furniture Needs
+                                    </h1>
+                                    <p>
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus quidem maiores perspiciatis, illo maxime voluptatem a itaque suscipit.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Contact Us
+                                        </a>
+                                        <a href="" class="btn2">
+                                            About Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="img-box">
+                                    <img src="images/slider-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#customCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#customCarousel" data-slide-to="1"></li>
+                <li data-target="#customCarousel" data-slide-to="2"></li>
+            </ol>
+        </div>
+    </section>
+    <!-- end slider section -->
+</div>
+
+<!-- furniture section -->
+
+<section class="furniture_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Our Furniture
+            </h2>
+            <p>
+                which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't an
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/f1.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            brown Chair Design
+                        </h5>
+                        <div class="price_box">
+                            <h6 class="price_heading">
+                                <span>$</span> 100.00
+                            </h6>
+                            <a href="">
+                                Buy Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/f2.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Double Bed Design
+                        </h5>
+                        <div class="price_box">
+                            <h6 class="price_heading">
+                                <span>$</span> 200.00
+                            </h6>
+                            <a href="">
+                                Buy Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/f3.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            House Chair Design
+                        </h5>
+                        <div class="price_box">
+                            <h6 class="price_heading">
+                                <span>$</span> 200.00
+                            </h6>
+                            <a href="">
+                                Buy Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/f4.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            brown Table Design
+                        </h5>
+                        <div class="price_box">
+                            <h6 class="price_heading">
+                                <span>$</span> 100.00
+                            </h6>
+                            <a href="">
+                                Buy Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/f5.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Blue Chair Design
+                        </h5>
+                        <div class="price_box">
+                            <h6 class="price_heading">
+                                <span>$</span> 200.00
+                            </h6>
+                            <a href="">
+                                Buy Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/f6.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Brown Table Design
+                        </h5>
+                        <div class="price_box">
+                            <h6 class="price_heading">
+                                <span>$</span> 200.00
+                            </h6>
+                            <a href="">
+                                Buy Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- Header
-    ============================================= -->
-    <header id="header" class="full-header no-sticky" data-menu-padding="30">
-        <div id="header-wrap">
-            <div class="container">
-                <div class="header-row align-items-lg-stretch">
+<!-- end furniture section -->
 
-                    <!-- Logo
-                    ============================================= -->
-                    <div id="logo">
-                        <a href="static/index.html" class="standard-logo"><img src="static/demos/ecommerce/images/logo.png" alt="Canvas Logo"></a>
-                        <a href="static/index.html" class="retina-logo"><img src="static/demos/ecommerce/images/logo@2x.png" alt="Canvas Logo"></a>
-                    </div><!-- #logo end -->
 
-                    <div class="header-misc align-items-lg-stretch">
+<!-- about section -->
 
-                        <!-- Top Cart
-                        ============================================= -->
-                        <div id="top-cart" class="header-misc-icon">
-                            <a href="#" id="top-cart-trigger"><i class="icon-line-bag"></i><span class="top-cart-number">5</span></a>
-                            <div class="top-cart-content">
-                                <div class="top-cart-title">
-                                    <h4>Shopping Cart</h4>
+<section class="about_section layout_padding long_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="images/about-img.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <div class="heading_container">
+                        <h2>
+                            About Us
+                        </h2>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolorem eum consequuntur ipsam repellat dolor soluta aliquid laborum, eius odit consectetur vel quasi in quidem, eveniet ab est corporis tempore.
+                    </p>
+                    <a href="">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end about section -->
+
+<!-- blog section -->
+
+<section class="blog_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Latest Blog
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/b1.jpg" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Look even slightly believable. If you are
+                        </h5>
+                        <p>
+                            alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        </p>
+                        <a href="">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/b2.jpg" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Anything embarrassing hidden in the middle
+                        </h5>
+                        <p>
+                            alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        </p>
+                        <a href="">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/b3.jpg" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Molestias magni natus dolores odio commodi. Quaerat!
+                        </h5>
+                        <p>
+                            alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        </p>
+                        <a href="">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end blog section -->
+
+<!-- client section -->
+
+<section class="client_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Testimonial
+            </h2>
+        </div>
+        <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-11 col-lg-10 mx-auto">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="images/client.jpg" alt="" />
                                 </div>
-                                <div class="top-cart-items">
-                                    <div class="top-cart-item">
-                                        <div class="top-cart-item-image">
-                                            <a href="#"><img src="static/images/shop/small/1.jpg" alt="Blue Round-Neck Tshirt" /></a>
-                                        </div>
-                                        <div class="top-cart-item-desc">
-                                            <div class="top-cart-item-desc-title">
-                                                <a href="#">Blue Round-Neck Tshirt with a Button</a>
-                                                <span class="top-cart-item-price d-block">$19.99</span>
-                                            </div>
-                                            <div class="top-cart-item-quantity">x 2</div>
-                                        </div>
+                                <div class="detail-box">
+                                    <div class="name">
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        <h6>
+                                            Siaalya
+                                        </h6>
                                     </div>
-                                    <div class="top-cart-item">
-                                        <div class="top-cart-item-image">
-                                            <a href="#"><img src="static/images/shop/small/6.jpg" alt="Light Blue Denim Dress" /></a>
-                                        </div>
-                                        <div class="top-cart-item-desc">
-                                            <div class="top-cart-item-desc-title">
-                                                <a href="#">Light Blue Denim Dress</a>
-                                                <span class="top-cart-item-price d-block">$24.99</span>
-                                            </div>
-                                            <div class="top-cart-item-quantity">x 3</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="top-cart-action">
-                                    <span class="top-checkout-price">$114.95</span>
-                                    <a href="#" class="button button-3d button-small m-0">View Cart</a>
+                                    <p>
+                                        It is a long established fact that a reader will be
+                                        distracted by the readable cIt is a long established fact
+                                        that a reader will be distracted by the readable c
+                                    </p>
                                 </div>
                             </div>
-                        </div><!-- #top-cart end -->
-
-                        <!-- Top Account
-                        ============================================= -->
-                        <div class="header-misc-icon">
-                            <a href="#"><i class="icon-line2-user"></i></a>
                         </div>
-
-                        <!-- Top Search
-                        ============================================= -->
-                        <div id="top-search" class="header-misc-icon">
-                            <a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
-                        </div><!-- #top-search end -->
-
                     </div>
-
-                    <div id="primary-menu-trigger">
-                        <svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-11 col-lg-10 mx-auto">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="images/client.jpg" alt="" />
+                                </div>
+                                <div class="detail-box">
+                                    <div class="name">
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        <h6>
+                                            Siaalya
+                                        </h6>
+                                    </div>
+                                    <p>
+                                        It is a long established fact that a reader will be
+                                        distracted by the readable cIt is a long established fact
+                                        that a reader will be distracted by the readable c
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Primary Navigation
-                    ============================================= -->
-                    <nav class="primary-menu style-ecommerce menu-spacing-margin">
-
-                        <ul class="menu-container">
-                            <li class="menu-item current"><a class="menu-link" href="#"><div>Home</div></a></li>
-                            <li class="menu-item mega-menu"><a class="menu-link" href="#"><div>Men</div></a>
-                                <div class="mega-menu-content mega-menu-style-2" style="background-image: url('static/images/shop/shop-menu.jpg'); background-repeat: no-repeat; background-position: right bottom;">
-                                    <div class="container">
-                                        <div class="row">
-                                            <ul class="sub-menu-container mega-menu-column col-xl-2 col-lg-3">
-                                                <li class="menu-item">
-                                                    <div class="widget">
-
-                                                        <div class="portfolio-item">
-                                                            <div class="portfolio-image">
-                                                                <a href="#"><img src="static/demos/ecommerce/images/items/1-1.jpg" alt="Grey Bag"></a>
-                                                                <div class="product-cart"><a href="#"><i class="icon-shopping-cart"></i></a></div>
-                                                                <div class="product-quickview"><a href="#" data-toggle="tooltip" data-placement="top" title="Available Sizes: S | M | L"><i class="icon-info"></i></a></div>
-                                                            </div>
-                                                            <div class="portfolio-desc pb-0">
-                                                                <div>
-                                                                    <h3><a href="#">Leather Bag</a></h3>
-                                                                    <span class="mt-0"><a href="#">Messenger Bag</a></span>
-                                                                    <div class="rating-stars">
-                                                                        <i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item-price">
-                                                                    <span>&euro;29.99</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <ul class="sub-menu-container mega-menu-column col-lg-3">
-                                                <li class="menu-item">
-                                                    <div class="widget">
-
-                                                        <h4 class="highlight-me">Last Viewed Items</h4>
-
-                                                        <div class="posts-sm row col-mb-30" id="recent-shop-list-sidebar">
-                                                            <div class="entry col-12">
-                                                                <div class="grid-inner row no-gutters">
-                                                                    <div class="col-auto">
-                                                                        <div class="entry-image">
-                                                                            <a href="#"><img src="static/demos/ecommerce/images/items/2-1.jpg" alt="Image"></a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col pl-3">
-                                                                        <div class="entry-title">
-                                                                            <h4><a href="#">Women's Hand Bag</a></h4>
-                                                                        </div>
-                                                                        <div class="entry-meta no-separator">
-                                                                            <ul class="sub-menu-container">
-                                                                                <li class="color">$15</li>
-                                                                                <li class="menu-item"><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="entry col-12">
-                                                                <div class="grid-inner row no-gutters">
-                                                                    <div class="col-auto">
-                                                                        <div class="entry-image">
-                                                                            <a href="#"><img src="static/demos/ecommerce/images/items/3-1.jpg" alt="Image"></a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col pl-3">
-                                                                        <div class="entry-title">
-                                                                            <h4><a href="#">Laptop Bag</a></h4>
-                                                                        </div>
-                                                                        <div class="entry-meta no-separator">
-                                                                            <ul class="sub-menu-container">
-                                                                                <li class="color">$19</li>
-                                                                                <li class="menu-item"><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star-empty"></i><i class="icon-star-empty"></i><i class="icon-star-empty"></i></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="entry col-12">
-                                                                <div class="grid-inner row no-gutters">
-                                                                    <div class="col-auto">
-                                                                        <div class="entry-image">
-                                                                            <a href="#"><img src="static/demos/ecommerce/images/items/4-1.jpg" alt="Image"></a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col pl-3">
-                                                                        <div class="entry-title">
-                                                                            <h4><a href="#">College Backpack</a></h4>
-                                                                        </div>
-                                                                        <div class="entry-meta no-separator">
-                                                                            <ul class="sub-menu-container">
-                                                                                <li class="color">$19.99</li>
-                                                                                <li class="menu-item"><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star-half-full"></i><i class="icon-star-empty"></i></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <ul class="sub-menu-container mega-menu-column col-lg-2">
-                                                <li class="menu-item mega-menu-title"><a class="menu-link" href="#"><div>Categories</div></a>
-                                                    <ul class="sub-menu-container">
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div><i class="icon-t-shirt"></i>Travel Bags</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div><i class="icon-laptop2"></i>Backpacks</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div><i class="icon-clock2"></i>Leather Bag</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div><i class="icon-plane"></i>Travel Bag</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div><i class="icon-barbell"></i>Trolley</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div><i class="icon-heart3"></i>Workout Bag</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div><i class="icon-film"></i>Hand Bag</div></a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="sub-menu-container mega-menu-column col-lg-2 border-left-0">
-                                                <li class="menu-item mega-menu-title"><a class="menu-link" href="#"><div>Popular Brands</div></a>
-                                                    <ul class="sub-menu-container">
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>United Colors</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Burton London</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Calvin Clein Jeans</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Dorothy Perkins</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Tommy Hilfiger</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Gucci</div></a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-11 col-lg-10 mx-auto">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="images/client.jpg" alt="" />
                                 </div>
-                            </li>
-                            <li class="menu-item mega-menu mega-menu-small"><a class="menu-link" href="#"><div>Women</div></a>
-                                <div class="mega-menu-content mega-menu-style-2">
-                                    <div class="container">
-                                        <div class="row">
-                                            <ul class="sub-menu-container mega-menu-column col-lg-6">
-                                                <li class="menu-item mega-menu-title"><a class="menu-link" href="#"><div>Footwear</div></a>
-                                                    <ul class="sub-menu-container">
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Casual Shoes</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Formal Shoes</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Sports shoes</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Flip Flops</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Slippers</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Sports Sandals</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Party Shoes</div></a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="sub-menu-container mega-menu-column col-lg-6">
-                                                <li class="menu-item mega-menu-title"><a class="menu-link" href="#"><div>Clothing</div></a>
-                                                    <ul class="sub-menu-container">
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Casual Shirts</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>T-Shirts</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Collared Tees</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Pants / Trousers</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Ethnic Wear</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Jeans</div></a></li>
-                                                        <li class="menu-item"><a class="menu-link" href="#"><div>Sweamwear</div></a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                <div class="detail-box">
+                                    <div class="name">
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        <h6>
+                                            Siaalya
+                                        </h6>
                                     </div>
+                                    <p>
+                                        It is a long established fact that a reader will be
+                                        distracted by the readable cIt is a long established fact
+                                        that a reader will be distracted by the readable c
+                                    </p>
                                 </div>
-                            </li><!-- .mega-menu end -->
-                            <li class="menu-item"><a class="menu-link" href="#"><div>Accessories</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="#"><div>Sale</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="#"><div>Blog</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="#"><div>Contact</div></a></li>
-                        </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel_btn-container">
+                <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExample2Controls" role="button" data-slide="next">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
-                    </nav><!-- #primary-menu end -->
+<!-- end client section -->
 
-                    <form class="top-search-form" action="static/search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
+<!-- contact section -->
+<section class="contact_section  long_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <div class="heading_container">
+                        <h2>
+                            Contact Us
+                        </h2>
+                    </div>
+                    <form action="">
+                        <div>
+                            <input type="text" placeholder="Your Name" />
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Phone Number" />
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" />
+                        </div>
+                        <div>
+                            <input type="text" class="message-box" placeholder="Message" />
+                        </div>
+                        <div class="btn_box">
+                            <button>
+                                SEND
+                            </button>
+                        </div>
                     </form>
-
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="map_container">
+                    <div class="map">
+                        <div id="googleMap"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="header-wrap-clone"></div>
-    </header><!-- #header end -->
+    </div>
+</section>
+<!-- end contact section -->
 
-    <!-- Slider
-    ============================================= -->
-    <section id="slider" class="slider-element swiper_wrapper min-vh-40 min-vh-md-75" data-autoplay="9000" data-speed="800" data-loop="true" data-grab="false">
+<!-- info section -->
+<section class="info_section long_section">
 
-        <div class="swiper-container swiper-parent">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="container">
-                        <div class="slider-caption" style="margin-top: -30px;">
-                            <div class="emphasis-title mb-0">
-                                <h2 class="bottommargin font-weight-bold" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>diff. Websites</h2>
-
-                                <p class="lead topmargin-sm d-none d-md-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-number font-primary">O1</div>
-                    <div class="swiper-slide-bg" style="background: #FFF url('static/demos/ecommerce/images/slider/1.jpg') no-repeat center right; background-size: auto 100%;"></div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="container">
-                        <div class="slider-caption" style="margin-top: -30px;">
-                            <div class="emphasis-title mb-0">
-                                <h2 class="bottommargin font-weight-bold" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>diff. Designs</h2>
-
-                                <p class="lead topmargin-sm d-none d-md-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-number font-primary">O2</div>
-                    <div class="swiper-slide-bg" style="background: #FFF url('static/demos/ecommerce/images/slider/2.jpg') no-repeat center right; background-size: auto 100%;"></div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="container">
-                        <div class="slider-caption" style="margin-top: -30px;">
-                            <div class="emphasis-title mb-0">
-                                <h2 class="bottommargin font-weight-bold" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>diff. Layouts</h2>
-
-                                <p class="lead topmargin-sm d-none d-md-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-number font-primary">O3</div>
-                    <div class="swiper-slide-bg" style="background: #FFF url('static/demos/ecommerce/images/slider/3.jpg') no-repeat center right; background-size: auto 100%;"></div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="container">
-                        <div class="slider-caption" style="margin-top: -30px;">
-                            <div class="emphasis-title mb-0">
-                                <h2 class="bottommargin font-weight-bold" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>diff. Mindset</h2>
-
-                                <p class="lead topmargin-sm d-none d-md-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-number font-primary">O4</div>
-                    <div class="swiper-slide-bg" style="background: #FFF url('static/demos/ecommerce/images/slider/4.jpg') no-repeat center right; background-size: auto 100%;"></div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="container">
-                        <div class="slider-caption" style="margin-top: -30px;">
-                            <div class="emphasis-title mb-0">
-                                <h2 class="bottommargin font-weight-bold" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>your Website</h2>
-
-                                <p class="lead topmargin-sm d-none d-md-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-number font-primary">O5</div>
-                    <div class="swiper-slide-bg" style="background: #FFF url('static/demos/ecommerce/images/slider/5.jpg') no-repeat center right; background-size: auto 100%;"></div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="container">
-                        <div class="slider-caption" style="margin-top: -30px;">
-                            <div class="emphasis-title mb-0">
-                                <h2 class="bottommargin font-weight-bold" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>your Home</h2>
-
-                                <p class="lead topmargin-sm d-none d-md-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-number font-primary">O6</div>
-                    <div class="swiper-slide-bg" style="background: #FFF url('static/demos/ecommerce/images/slider/6.jpg') no-repeat center right; background-size: auto 100%;"></div>
-                </div>
-            </div>
-            <div class="slider-arrow-left"><i class="icon-line-arrow-left"></i></div>
-            <div class="slider-arrow-right"><i class="icon-line-arrow-right"></i></div>
+    <div class="container">
+        <div class="contact_nav">
+            <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+            Call : +01 123455678990
+          </span>
+            </a>
+            <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+            Email : demo@gmail.com
+          </span>
+            </a>
+            <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+            Location
+          </span>
+            </a>
         </div>
 
-    </section><!-- #Slider End -->
-
-    <!-- Content
-    ============================================= -->
-    <section id="content">
-        <div class="content-wrap py-0">
-
-            <div class="section mt-0"  style="padding: 100px 0;">
-                <div class="container">
-
-                    <div class="row grid-item">
-                        <div class="col-md-2 grid-image">
-                            <img src="static/demos/ecommerce/images/categories/1.jpg" alt="Image 1">
+        <div class="info_top ">
+            <div class="row ">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="info_links">
+                        <h4>
+                            QUICK LINKS
+                        </h4>
+                        <div class="info_links_menu">
+                            <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="" href="about.html"> About</a>
+                            <a class="" href="furniture.html">Furniture</a>
+                            <a class="" href="blog.html">Blog</a>
+                            <a class="" href="contact.html">Contact Us</a>
                         </div>
-                        <div class="col-md-2">
-                            <div class="grid-info clearfix">
-                                <h3><a href="#">Fresh Arrivals<span>Summer is Coming!</span></a></h3>
-                                <a href="#" class="more-link clearfix">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="col-md-2 grid-image">
-                            <img src="static/demos/ecommerce/images/categories/2.jpg" alt="Image 1">
-                        </div>
-                        <div class="col-md-2">
-                            <div class="grid-info clearfix">
-                                <h3><a href="#">Acessories<span>Check out more Products for your Lifestyles</span></a></h3>
-                                <a href="#" class="more-link clearfix">Know More</a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 grid-image">
-                            <img src="static/demos/ecommerce/images/categories/3.jpg" alt="Image 1">
-                        </div>
-                        <div class="col-md-2">
-                            <div class="grid-info clearfix">
-                                <h3><a href="#">Our Store<span>Where we Manufacture!</span></a></h3>
-                                <i class="icon-map-marker2"></i> <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2233.681463596743!2d-3.19397378404521!3d55.954892680607855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887c78e1e83edab%3A0x627ac6bc4414f18b!2sGucci+-+Edinburgh+Harvey+Nichols+Women&#39;s!5e0!3m2!1sen!2sus!4v1489749205966" data-lightbox="iframe"  class="more-link clearfix">Find Store</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="container clearfix">
-
-                <div class="heading-block border-bottom-0 center">
-                    <h3>Popular Categories</h3>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit voluptas.</span>
-                </div>
-
-                <div class="row ecommerce-categories clearfix" style="padding: 20px 0 0;">
-                    <div class="col-lg-7">
-                        <a href="#" style="background: url('static/demos/ecommerce/images/types/1.jpg') no-repeat center center; background-size: cover;">
-                            <div class="vertical-middle dark center">
-                                <div class="heading-block m-0 border-0">
-                                    <h3 class="text-capitalize font-secondary nott font-weight-medium">Travel</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-5">
-                        <a href="#" style="background: url('static/demos/ecommerce/images/types/3.jpg') no-repeat center center; background-size: cover;">
-                            <div class="vertical-middle dark center">
-                                <div class="heading-block m-0 border-0">
-                                    <h3 class="text-capitalize font-secondary nott font-weight-medium">College</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <a href="#" style="background: url('static/demos/ecommerce/images/types/5.jpg') no-repeat center center; background-size: cover;">
-                            <div class="vertical-middle dark center">
-                                <div class="heading-block m-0 border-0">
-                                    <h3 class="text-capitalize font-secondary nott font-weight-medium">Leather</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4">
-                        <a href="#" style="background: url('static/demos/ecommerce/images/types/6.jpg') no-repeat center center; background-size: cover;">
-                            <div class="vertical-middle dark center">
-                                <div class="heading-block m-0 border-0">
-                                    <h3 class="text-capitalize font-secondary nott font-weight-medium">Reise</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4">
-                        <a href="#" style="background: url('static/demos/ecommerce/images/types/8.jpg') no-repeat center center; background-size: cover;">
-                            <div class="vertical-middle dark center">
-                                <div class="heading-block m-0 border-0">
-                                    <h3 class="text-capitalize font-secondary nott font-weight-medium">Handmade</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-5">
-                        <a href="#" style="background: url('static/demos/ecommerce/images/types/7.jpg') no-repeat center center; background-size: cover;">
-                            <div class="vertical-middle dark center">
-                                <div class="heading-block m-0 border-0">
-                                    <h3 class="text-capitalize font-secondary nott font-weight-medium">Brown</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-7">
-                        <a href="#" style="background: url('static/demos/ecommerce/images/types/9.jpg') no-repeat center center; background-size: cover;">
-                            <div class="vertical-middle dark center">
-                                <div class="heading-block m-0 border-0">
-                                    <h3 class="text-capitalize font-secondary nott font-weight-medium">Acessories</h3>
-                                </div>
-                            </div>
-                        </a>
                     </div>
                 </div>
-            </div>
-
-            <div class="section clearfix"  style="padding: 80px 0;">
-                <div class="container clearfix">
-
-                    <div class="heading-block border-bottom-0 center">
-                        <h3 class="font-weight-normal" style="font-size: 16px;">Best Selling Products</h3>
-                    </div>
-
-                    <div class="row clearfix">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="portfolio-item">
-                                <div class="portfolio-image clearfix">
-                                    <div class="fslider" data-pagi="false" data-animation="fade" data-slideshow="false">
-                                        <div class="flexslider">
-                                            <div class="slider-wrap">
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/1-1.jpg" alt="Grey Bag"></a></div>
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/1-2.jpg" alt="Grey Bag"></a></div>
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/1-3.jpg" alt="Grey Bag"></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart"><a href="#"><i class="icon-shopping-cart"></i></a></div>
-                                    <div class="product-quickview"><a href="#" data-toggle="tooltip" data-placement="top" title="Available Sizes: S | M | L"><i class="icon-info"></i></a></div>
-                                </div>
-                                <div class="portfolio-desc pb-0-content-between">
-                                    <div>
-                                        <h3><a href="#">Leather Bag</a></h3>
-                                        <span class="mt-0"><a href="#">Grey Messenger Bag</a></span>
-                                        <div class="rating-stars">
-                                            <i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i>
-                                        </div>
-                                    </div>
-                                    <div class="item-price pt-1">
-                                        <span>&euro;29.99</span>
-                                    </div>
-                                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mx-auto">
+                    <div class="info_post">
+                        <h5>
+                            INSTAGRAM FEEDS
+                        </h5>
+                        <div class="post_box">
+                            <div class="img-box">
+                                <img src="images/f1.png" alt="">
                             </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="portfolio-item">
-                                <div class="portfolio-image clearfix">
-                                    <div class="fslider" data-pagi="false" data-animation="fade" data-slideshow="false">
-                                        <div class="flexslider">
-                                            <div class="slider-wrap">
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/4-1.jpg" alt="Grey Bag"></a></div>
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/4-2.jpg" alt="Grey Bag"></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart"><a href="#"><i class="icon-shopping-cart"></i></a></div>
-                                    <div class="product-quickview"><a href="#" data-toggle="tooltip" data-placement="top" title="Available Sizes: S | M | L"><i class="icon-info"></i></a></div>
-                                </div>
-                                <div class="portfolio-desc pb-0-content-between">
-                                    <div>
-                                        <h3><a href="#">Black Bagpack</a></h3>
-                                        <span class="mt-0"><a href="#">College Backpack</a></span>
-                                        <div class="rating-stars">
-                                            <i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i>
-                                        </div>
-                                    </div>
-                                    <div class="item-price pt-1">
-                                        <span>&euro;23.49</span>
-                                    </div>
-                                </div>
+                            <div class="img-box">
+                                <img src="images/f2.png" alt="">
                             </div>
-                        </div>
-
-                        <div class="w-100 bottommargin d-block d-md-none"></div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="portfolio-item">
-                                <div class="portfolio-image clearfix">
-                                    <div class="fslider" data-pagi="false" data-animation="fade" data-slideshow="false">
-                                        <div class="flexslider">
-                                            <div class="slider-wrap">
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/2-1.jpg" alt="Office Bag"></a></div>
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/2-2.jpg" alt="Office Bag"></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart"><a href="#"><i class="icon-shopping-cart"></i></a></div>
-                                    <div class="product-quickview"><a href="#" data-toggle="tooltip" data-placement="top" title="Available Sizes: L"><i class="icon-info"></i></a></div>
-                                </div>
-                                <div class="portfolio-desc pb-0-content-between">
-                                    <div>
-                                        <h3><a href="#">Women Office Bag</a></h3>
-                                        <span class="mt-0"><a href="#">Hand Bag</a></span>
-                                        <div class="rating-stars">
-                                            <i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star-empty"></i>
-                                        </div>
-                                    </div>
-                                    <div class="item-price pt-1">
-                                        <span>&euro;11.99</span>
-                                    </div>
-                                </div>
+                            <div class="img-box">
+                                <img src="images/f3.png" alt="">
                             </div>
-                        </div>
-
-                        <div class="w-100 bottommargin d-block d-md-none"></div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="portfolio-item">
-                                <div class="portfolio-image clearfix">
-                                    <div class="fslider" data-pagi="false" data-animation="fade" data-slideshow="false">
-                                        <div class="flexslider">
-                                            <div class="slider-wrap">
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/3-1.jpg" alt="Men Bag"></a></div>
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/3-2.jpg" alt="Men Bag"></a></div>
-                                                <div class="slide"><a href="#"><img src="static/demos/ecommerce/images/items/3-3.jpg" alt="Men Bag"></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sale-flash badge badge-danger p-2">Sale!</div>
-                                    <div class="product-cart"><a href="#"><i class="icon-shopping-cart"></i></a></div>
-                                    <div class="product-quickview"><a href="#" data-toggle="tooltip" data-placement="top" title="Available Sizes: S | M | L"><i class="icon-info"></i></a></div>
-                                </div>
-                                <div class="portfolio-desc pb-0-content-between">
-                                    <div>
-                                        <h3><a href="#">Men Black Bag</a></h3>
-                                        <span class="mt-0"><a href="#">Laptop Bag</a></span>
-                                        <div class="rating-stars">
-                                            <i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star-half-full"></i>
-                                        </div>
-                                    </div>
-                                    <div class="item-price pt-1">
-                                        <span><del class="d-md-none d-lg-block">$45.99</del> &euro;39.00</span>
-                                    </div>
-                                </div>
+                            <div class="img-box">
+                                <img src="images/f4.png" alt="">
                             </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="section bg-transparent">
-                <div class="container clearfix">
-                    <div class="row clearfix">
-                        <div class="col-lg-5">
-                            <div id="oc-images" class="owl-carousel image-carousel carousel-widget custom-js">
-
-                                <div class="oc-item">
-                                    <a href="#"><img src="static/demos/ecommerce/images/featured/1.jpg" alt="Image 1"></a>
-                                </div>
-                                <div class="oc-item">
-                                    <a href="#"><img src="static/demos/ecommerce/images/featured/2.jpg" alt="Image 2"></a>
-                                </div>
-                                <div class="oc-item">
-                                    <a href="#"><img src="static/demos/ecommerce/images/featured/3.jpg" alt="Image 3"></a>
-                                </div>
-                                <div class="oc-item">
-                                    <a href="#"><img src="static/demos/ecommerce/images/featured/4.jpg" alt="Image 4"></a>
-                                </div>
-                                <div class="oc-item">
-                                    <a href="#"><img src="static/demos/ecommerce/images/featured/5.jpg" alt="Image 5"></a>
-                                </div>
-                                <div class="oc-item">
-                                    <a href="#"><img src="static/demos/ecommerce/images/featured/6.jpg" alt="Image 6"></a>
-                                </div>
-
+                            <div class="img-box">
+                                <img src="images/f5.png" alt="">
                             </div>
-                        </div>
-                        <div class="col-lg-5 offset-lg-1">
-                            <div class="featured-item topmargin">
-                                <div class="item-title">
-                                    <div class="before-heading font-weight-semibold ls5"><a href="#" style="color: #aab7bd !important;">Leather Bags <i class="icon-angle-right"></i></a></div>
-                                    <h3><a href="#">Lady Shoulder Bag.</a></h3>
-                                </div>
-                                <div class="item-meta font-secondary">
-                                    SKU: 8465415.
-                                    Design: Leather / Blue
-                                </div>
-                                <div class="clear"></div>
-                                <div class="item-desc">
-                                    <p>Proactively empower highly efficient growth strategies Completely enhance inexpensive best practices before front-end content. Completely procrastinate innovative vortals through maintainable leadership skills. Continually foster business sources for viral leadership skills.</p>
-                                </div>
-                                <div class="item-color bottommargin-sm">
-                                    <span>Available Colors:</span>
-                                    <div id="item-color-dots" class="owl-dots"></div>
-                                </div>
-                                <div class="button button-border button-circle m-0 font-secondary">View Details</div>
+                            <div class="img-box">
+                                <img src="images/f6.png" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="clear"></div>
-
-            <div class="row align-items-stretch bottommargin clearfix">
-                <div class="col-md-6" style="background: url('static/demos/ecommerce/images/sections/1.jpg') center 45% no-repeat; background-size: cover; padding: 0 0 500px;">
-                    <div class="section-content topmargin-sm">
-                        <h3>Travel Bags for Men</h3>
-                        <span class="font-primary">Designed to help you never make your bed again. Superior materials for comfort and lasting quality in a complete bedding package.</span>
-                        <a class="more-link text-uppercase font-weight-medium" style="font-family: 'Montserrat';">Go To Shop <i class="icon-line-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-6" style="background: url('static/demos/ecommerce/images/sections/3.jpg') center center no-repeat; background-size: cover; padding: 0 0 500px;">
-                    <div class="section-content topmargin-sm">
-                        <h3>Luxury Bags for Women</h3>
-                        <span class="font-primary">Globally monetize unique metrics and enterprise markets. Efficiently implement cooperative e-services and integrated interfaces.</span>
-                        <a class="more-link text-uppercase font-weight-medium" style="font-family: 'Montserrat';">Go To Shop <i class="icon-line-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="clear"></div>
-
-            <div class="container topmargin clearfix">
-                <div class="heading-block border-bottom-0 bottommargin center">
-                    <h3 style="font-size: 20px;">Shop By Categories</h3>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing<br>elit voluptas.</span>
-                </div>
-
-                <div class="row col-mb-50">
-                    <div class="col-lg-2 col-md-4 col-6 offset-lg-1">
-                        <div class="feature-box fbox-center">
-                            <div class="fbox-content">
-                                <div class="before-heading ls2">0mm - 31mm</div>
-                                <h3 class="font-weight-normal ls1">Laptop</h3>
-                            </div>
-                            <div class="fbox-image imagescalein">
-                                <a href="#"><img src="static/demos/ecommerce/images/icons/2.png" alt="Image"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="feature-box fbox-center">
-                            <div class="fbox-content">
-                                <div class="before-heading ls2">0mm - 31mm</div>
-                                <h3 class="font-weight-normal ls1">Hand Bag</h3>
-                            </div>
-                            <div class="fbox-image imagescalein">
-                                <a href="#"><img src="static/demos/ecommerce/images/icons/3.png" alt="Image"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="feature-box fbox-center">
-                            <div class="fbox-content">
-                                <div class="before-heading ls2">0mm - 31mm</div>
-                                <h3 class="font-weight-normal ls1">Backpack</h3>
-                            </div>
-                            <div class="fbox-image imagescalein">
-                                <a href="#"><img src="static/demos/ecommerce/images/icons/4.png" alt="Image"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="feature-box fbox-center">
-                            <div class="fbox-content">
-                                <div class="before-heading ls2">0mm - 31mm</div>
-                                <h3 class="font-weight-normal ls1">Duffle</h3>
-                            </div>
-                            <div class="fbox-image imagescalein">
-                                <a href="#"><img src="static/demos/ecommerce/images/icons/5.png" alt="Image"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="feature-box fbox-center">
-                            <div class="fbox-content">
-                                <div class="before-heading ls2">0mm - 31mm</div>
-                                <h3 class="font-weight-normal ls1">Trolley</h3>
-                            </div>
-                            <div class="fbox-image imagescalein">
-                                <a href="#"><img src="static/demos/ecommerce/images/icons/6.png" alt="Image"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section dark mb-0">
-                <div class="container clearfix">
-
-                    <div class="row payments-info">
-                        <div class="col-lg-6">
-                            <p class="lead m-0">Free Shipping on Orders of <strong>$199</strong> or above.</p>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="payment-cards clearfix" style="margin-top: 5px;">
-                                <li><img src="static/demos/xmas/images/cards/visa.svg" alt="Visa"></li>
-                                <li><img src="static/demos/xmas/images/cards/mc.svg" alt="Master Card"></li>
-                                <li><img src="static/demos/xmas/images/cards/ae.svg" alt="American Express"></li>
-                                <li><img src="static/demos/xmas/images/cards/pp.svg" alt="PayPal"></li>
-                                <li><img src="static/demos/xmas/images/cards/sk.svg" alt="Skrill"></li>
-                                <li><img src="static/demos/xmas/images/cards/2co.svg" alt="2CheckOut"></li>
-                                <li><img src="static/demos/xmas/images/cards/wu.svg" alt="Western Union"></li>
-                            </ul>
+                <div class="col-md-4">
+                    <div class="info_form">
+                        <h4>
+                            SIGN UP TO OUR NEWSLETTER
+                        </h4>
+                        <form action="">
+                            <input type="text" placeholder="Enter Your Email" />
+                            <button type="submit">
+                                Subscribe
+                            </button>
+                        </form>
+                        <div class="social_box">
+                            <a href="">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!-- #content end -->
-
-    <!-- Footer
-    ============================================= -->
-    <footer id="footer" class="border-0 bg-transparent">
-
-        <div class="container clearfix">
-
-            <!-- Footer Widgets
-            ============================================= -->
-            <div class="footer-widgets-wrap clearfix"  style="padding: 60px 0 100px;">
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-
-                        <div class="row clearfix">
-                            <div class="col-lg-6">
-                                <div class="widget widget_links widget-li-noicon">
-                                    <h4>Hire</h4>
-                                    <ul>
-                                        <li><a href="#">Documentation</a></li>
-                                        <li><a href="#">Feedback</a></li>
-                                        <li><a href="#">Plugins</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="widget widget_links widget-li-noicon">
-                                    <h4>Community</h4>
-                                    <ul>
-                                        <li><a href="#">Documentation</a></li>
-                                        <li><a href="#">Feedback</a></li>
-                                        <li><a href="#">Plugins</a></li>
-                                        <li><a href="#">Support Forums</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="clear"></div>
-
-                        <div class="line line-sm"></div>
-
-                        <div class="copy-link"><a href="mailto:noreply@canvas.com"><i class="icon-envelope2"></i>  info@canvas.com</a> <span class="middot"> | </span> <a href="tel:+1-11-6541-6369"><i class="icon-headphones"></i> +1-11-6541-6369</a> <span class="middot"> | </span> <a href="skype:CanvasOnSkype?call"><i class="icon-skype2"></i> CanvasOnSkype</a></div>
-
-                    </div>
-
-                    <div class="col-lg-5 offset-lg-1">
-
-                        <div class="widget">
-                            <h4>Connect Socially</h4>
-
-                            <div class="bottommargin-sm clearfix">
-                                <a href="#" class="social-icon si-dark si-mini si-rounded si-facebook" title="Facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-dark si-mini si-rounded si-twitter" title="Twitter">
-                                    <i class="icon-twitter"></i>
-                                    <i class="icon-twitter"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-dark si-mini si-rounded si-instagram" title="Instagram">
-                                    <i class="icon-instagram"></i>
-                                    <i class="icon-instagram"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-dark si-mini si-rounded si-pinterest" title="Pinterest">
-                                    <i class="icon-pinterest"></i>
-                                    <i class="icon-pinterest"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-dark si-mini si-rounded si-vimeo" title="Vimeo">
-                                    <i class="icon-vimeo"></i>
-                                    <i class="icon-vimeo"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="widget subscribe-widget mt-0 clearfix">
-                            <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
-                            <div class="widget-subscribe-form-result"></div>
-                            <form id="widget-subscribe-form" action="static/include/subscribe.php" method="post" class="mb-0">
-                                <div class="input-group input-group-lg mx-auto">
-                                    <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                                    <div class="input-group-append">
-                                        <button class="button button-black font-weight-light button-dark ls2 text-uppercase" type="submit">Subscribe</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div><!-- .footer-widgets-wrap end -->
-
-        </div>
-
-    </footer><!-- #footer end -->
-
-</div><!-- #wrapper end -->
-
-{% block headscripts deferred %}
-{{ pimcore_head_script() }}
-{% endblock %}
+    </div>
+</section>
+<!-- end info_section -->
 
 
-{% block inlinescripts deferred %}
-{{ pimcore_inline_script() }}
-{% endblock %}
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="https://html.design/">Free Html Templates</a>
+            Distribution <a href="https://themewagon.com">ThemeWagon</a>
+        </p>
+    </div>
+</footer>
+<!-- footer section -->
 
-<script>
 
-    // Topbar Hide
-    $('#top-bar').on('click','#close-bar',function(){
-        $(this).parents('#top-bar').slideUp(300);
-        $('body').css('padding-top',0);
-    })
-
-    jQuery(window).on( 'pluginCarouselReady', function(){
-        // Custom Carousel
-        $('.owl-carousel').owlCarousel({
-            items: 1,
-            dotsContainer: '#item-color-dots',
-            loop: true,
-        });
-    });
-</script>
+<!-- jQery -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<!-- bootstrap js -->
+<script src="js/bootstrap.js"></script>
+<!-- custom js -->
+<script src="js/custom.js"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+<!-- End Google Map -->
 
 </body>
+
 </html>

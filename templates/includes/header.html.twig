@@ -1,4 +1,4 @@
-<header id="header" class="full-header no-sticky" data-menu-padding="30">
+<header class="header_section long_section px-0">
     {% if not editmode %}
         {% set navStartNode = document.getProperty('navigation_root') %}
         {% if not navStartNode is instanceof('\\Pimcore\\Model\\Document\\Page') %}
@@ -10,93 +10,58 @@
             {% endif %}
         {% endif %}
 
-        <div id="header-wrap">
-            <div class="container">
-                <div class="header-row align-items-lg-stretch">
+    <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="static/index.html">
+          <span>
+            Edgecut
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+        </button>
 
-                    <!-- Logo
-                    ============================================= -->
-                    <div id="logo">
-                        <a href="{{ navStartNode }}" class="standard-logo"><img src="static/demos/ecommerce/images/logo.png" alt="Canvas Logo"></a>
-                        <a href="{{ navStartNode }}" class="retina-logo"><img src="static/demos/ecommerce/images/logo@2x.png" alt="Canvas Logo"></a>
-                    </div><!-- #logo end -->
-
-                    <div class="header-misc align-items-lg-stretch">
-
-
-                        <!-- Top Search
-                        ============================================= -->
-                        <div id="top-search" class="header-misc-icon">
-                            <a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
-                        </div><!-- #top-search end -->
-
-                    </div>
-
-                    <div id="primary-menu-trigger">
-                        <svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
-                    </div>
-
-                    <!-- Primary Navigation
-                    ============================================= -->
-                    <nav class="primary-menu style-ecommerce menu-spacing-margin">
-
-                        {% set mainNavigation = pimcore_build_nav({active: document, root: navStartNode}) %}
-                        {% set menuRenderer = pimcore_nav_renderer('menu') %}
-                            <ul class="menu-container">
-                                <li class="menu-item">
-                                    <a class="menu-link {{ document.id == navStartNode.id ? 'active' }}"
-                                       href="{{ navStartNode }}">{{ navStartNode.title }}
-                                    </a>
-                                </li>
-
-                            {% for page in mainNavigation %}
-                                {% if page.isVisible() and menuRenderer.accept(page) %}
-                                    {% set hasChildren = page.hasPages() %}
-
-                                    {% if not hasChildren %}
-                                        <li class="menu-item">
-                                            <a class="menu-link {{ document.id == page.id ? 'active' }}"
-                                               href="{{ page.getHref() }}">
-                                                {{ page.getLabel()|trans }}
-                                            </a>
-                                        </li>
-                                    {% else %}
-                                        <li class="menu-item-dropdown">
-                                            <a class="menu-link dropdown-toggle {{ document.id == page.id ? 'active' }}"
-                                               href="{{ page.getHref() }}" aria-expanded="false"
-                                               id="navbarDropdown_{{ page.id }}" role="button"
-                                               data-bs-toggle="dropdown" aria-haspopup="true">
-                                                {{ page.getLabel()|trans }}
-                                            </a>
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown_{{ page.id }}">
-                                                <li>
-                                                    <a class="dropdown-item" href="{{ page.getHref() }}">{{ page.getLabel()|trans }}</a>
-                                                </li>
-                                                {% for child in page.getPages() %}
-                                                    {% if child.isVisible() and menuRenderer.accept(page) %}
-                                                        <li>
-                                                            <a class="dropdown-item" href="{{ child.getHref() }}">{{ child.getLabel()|trans }}</a>
-                                                        </li>
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </ul>
-                                        </li>
-
-
-                                    {% endif %}
-                                {% endif %}
-                            {% endfor %}
-                            </ul>
-
-                    </nav><!-- #primary-menu end -->
-                    {% endif %}
-
-                    <form class="top-search-form" action="static/search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
-                    </form>
-
-                </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+                <ul class="navbar-nav  ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="static/index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="static/about.html"> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="static/furniture.html">Furnitures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="static/blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="static/contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="quote_btn-container">
+                <a href="">
+              <span>
+                Login
+              </span>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+                <form class="form-inline">
+                    <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
             </div>
         </div>
-        <div class="header-wrap-clone"></div>
-    </header><!-- #header end -->
+    </nav>
+    {% endif %}
+</header>
+<!-- end header section -->
+
+
+
+
+
+
+
