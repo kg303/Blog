@@ -1,47 +1,53 @@
-<!-- slider section -->
+{% set block = pimcore_block('gallery-carousel', {'manual' : true}).start() %}
 <section class="slider_section long_section">
 
     <div id="customCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container ">
-                    <div class="row">
-
-                        <div class="col-md-5">
-                            <div class="detail-box">
-                                <h1>
-                                    {{ pimcore_input('first') }} <br>
-                                    {{ pimcore_input('second') }}
-                                </h1>
-                                <p>
-                                    {{ pimcore_textarea('description') }}
-                                </p>
-                                <div class="btn-box">
-                                    <a href="" class="btn1">
-                                        Home
-                                    </a>
-                                    <a href="" class="btn2">
-                                        Blog
-                                    </a>
+            {% set isFirst = true %}
+            {% for i, b in pimcore_iterate_block(block) %}
+                {% do block.blockConstruct() %}
+                <div class="carousel-item{{ isFirst ? ' active' : '' }}">
+                    {% do block.blockStart() %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="detail-box">
+                                    <h1>
+                                        {{ pimcore_input('first') }} <br>
+                                        {{ pimcore_input('second') }}
+                                    </h1>
+                                    <p>
+                                        {{ pimcore_textarea('description') }}
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">Home</a>
+                                        <a href="" class="btn2">Blog</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="img-box">
+                                    <img src="static/images/slider-img.png" alt="">
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-7">
-                            <div class="img-box">
-                                <img src="static/images/slider-img.png" alt="">
-                            </div>
-                        </div>
-
                     </div>
+                    {% do block.blockEnd() %}
                 </div>
-            </div>
+                {% set isFirst = false %}
+                {% do block.blockDestruct() %}
+            {% endfor %}
         </div>
 
+        <!-- Navigation Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#customCarousel" data-slide-to="0" class="active"></li>
+            {% for key,slideIndex in range(1, block.indices|length) %}
+                <li data-target="#customCarousel" data-slide-to="{{ slideIndex - 1 }}" {% if key == 0 %}class="active"{% endif %}></li>
+{#                {% set isFirst = false %}#}
+            {% endfor %}
         </ol>
 
     </div>
 </section>
-<!-- end slider section -->
+
+{% do block.end() %}
