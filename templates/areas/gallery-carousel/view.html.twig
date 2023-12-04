@@ -20,14 +20,16 @@
                                         {{ pimcore_textarea('description') }}
                                     </p>
                                     <div class="btn-box">
-                                        <a href="" class="btn1">Home</a>
-                                        <a href="" class="btn2">Blog</a>
+                                        {{ pimcore_link('Link', {'class': "btn1"}) }}
+                                        {{ pimcore_link('myLink', {'class': "btn2"}) }}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-7">
                                 <div class="img-box">
-                                    <img src="static/images/slider-img.png" alt="">
+                                    {{ pimcore_image('image', {
+                                        'thumbnail': 'galleryCarouselPreview'
+                                    }) }}
                                 </div>
                             </div>
                         </div>
