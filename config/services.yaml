@@ -1,5 +1,6 @@
 parameters:
     secret: 9+5inMUzgxCVdfDVwO/bDfOo/cyadHuBKJ2WAV6H42s=
+    site_protocol: '%env(SITE_PROTOCOL)%'
 
     # customize the full path to external executables
     # normally they are auto-detected by `which program` or auto-discovered in the configured path in
@@ -39,6 +40,13 @@ services:
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
         public: false
+
+    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
+
+    Namespace\ImportService:
+        arguments:
+            - '@service_container'
+
     #
     # CONTROLLERS
     #
@@ -62,6 +70,10 @@ services:
     # Twig Extensions
     App\Twig\Extension\UniqidExtension:
         tags: ['twig.extension']
+
+    # Link Generators
+    App\Website\LinkGenerator\BlogPostLinkGenerator:
+        public: true
 
 
     # Example custom templating helper

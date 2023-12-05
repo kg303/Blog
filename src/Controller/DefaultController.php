@@ -7,9 +7,23 @@ use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bridge\Twig\Attribute\Template;
+use Symfony\Component\Routing\Annotation\Route;
+use Pimcore\Model\DataObject\BlogPost;
 
 class DefaultController extends FrontendController
 {
+
+    /**
+     * @Route("/testing-url", name="testing_url")
+     */
+    public function test()
+    {
+        $test = BlogPost::getById(3);
+
+        dd($test);
+    }
+
+
     /**
      * @param Request $request
      * @return Response
