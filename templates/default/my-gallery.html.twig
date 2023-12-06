@@ -1,0 +1,14 @@
+{% if assets %}
+    <div class="my-gallery" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 0 auto; max-width: 600px;">
+        {% for asset in assets %}
+            {% if asset is instanceof('\\Pimcore\\Model\\Asset\\Image') %}
+                <div class="gallery-item" style="width: 100%; height: auto;">
+                    {{ asset.getThumbnail('myThumbnailName').getHTML()|raw }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+

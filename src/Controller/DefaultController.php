@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Component\Routing\Annotation\Route;
 use Pimcore\Model\DataObject\BlogPost;
+use Pimcore\Model\Asset;
 
 class DefaultController extends FrontendController
 {
@@ -44,6 +45,21 @@ class DefaultController extends FrontendController
     #[Template('includes/footer.html.twig')]
     public function footerAction(Request $request)
     {
+        return [];
+    }
+
+    #[Template('default/my-gallery.html.twig')]
+    public function myGalleryAction(Request $request): array
+    {
+        if ('asset' === $request->get('type')) {
+            $asset = Asset::getById((int) $request->get('id'));
+            if ('folder' === $asset->getType()) {
+                return [
+                    'assets' => $asset->getChildren()
+                ];
+            }
+        }
+
         return [];
     }
 
