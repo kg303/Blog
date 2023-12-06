@@ -10,7 +10,7 @@ use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
 use Pimcore\Model\DataObject\BlogPost;
 use Pimcore\Model\Document;
-use Pimcore\Tool\Text;
+use App\Website\Tool\Text;
 use Pimcore\Twig\Extension\Templating\PimcoreUrl;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -80,13 +80,14 @@ class BlogPostLinkGenerator implements LinkGeneratorInterface
 
             return $this->pimcoreUrl->__invoke(
                 [
-                    'blogtitle' => Text::toUrl($object->getTitle($locale) ? $object->getTitle($locale) : 'news'),
+                    'blogtitle' => Text::toUrl($object->getTitle($locale) ? $object->getTitle($locale) : 'blogpost'),
                     'blogpost' => $object->getId(),
-                    'path' => $fullPath,
+                    'blog' => $fullPath,
                     '_locale' => $locale,
                 ],
-                'blog_post-detail',
-                true
+
+                    'blog_post-detail',
+                    true
             );
         });
     }

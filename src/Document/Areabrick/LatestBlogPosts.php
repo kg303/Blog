@@ -23,7 +23,7 @@ class LatestBlogPosts extends AbstractAreabrick
 
         $info->setParams(
             [
-                'blog_posts' => $blogPosts
+                'blogpost' => $blogPosts
             ]
         );
 

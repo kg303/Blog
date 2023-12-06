@@ -21,19 +21,19 @@ class BlogController extends FrontendController
     }
 
     /**
-     * @Route ("/blog/{blogtitle}-{blogpost}", name="blog_post-detail", requirements={"blogtitle"="[\w-]+", "blogpost"="\d+"})
+     * @Route("/blog/{blogtitle}~n{blogpost}", name="blog_post-detail", defaults={"blog"=""}, requirements={"blog"=".*?", "blogtitle"="[\w-]+", "blogpost"="\d+"})
      */
     public function detailAction(Request $request, BlogPostLinkGenerator $blogPostLinkGenerator): \Symfony\Component\HttpFoundation\Response
     {
-        $blogPosts = BlogPost::getById($request->get('blogpost'));
+        $blogpost = BlogPost::getById($request->get('blogpost'));
 
-        if (!($blogPosts instanceof BlogPost && ($blogPosts->isPublished() || $this->verifyPreviewRequest($request, $blogPosts)))) {
+        if (!($blogpost instanceof BlogPost && ($blogpost->isPublished() || $this->verifyPreviewRequest($request, $blogpost)))) {
             throw new NotFoundHttpException('News not found.');
         }
 
 
         return $this->render('blog/detail.html.twig', [
-            'blogPosts' => $blogPosts
+            'blogpost' => $blogpost
         ]);
     }
 

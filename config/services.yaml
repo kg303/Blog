@@ -71,6 +71,9 @@ services:
     App\Twig\Extension\UniqidExtension:
         tags: ['twig.extension']
 
+    App\Twig\Extension\BlogPostExtension:
+        tags: [ 'twig.extension' ]
+
     # Link Generators
     App\Website\LinkGenerator\BlogPostLinkGenerator:
         public: true

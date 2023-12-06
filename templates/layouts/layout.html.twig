@@ -45,6 +45,7 @@
                 {% set document = document.getElement() %}
             {% endif %}
 
+
             {% if document is instanceof('\\Pimcore\\Model\\Document\\Page') %}
                 {% if document.getTitle() is not empty %}
                     {% do pimcore_head_title().set(document.getTitle()) %}
