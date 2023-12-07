@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Pimcore\Bundle\AdminBundle\Controller\Admin\LoginController;
 use Pimcore\Controller\FrontendController;
+use Pimcore\Model\DataObject\Products;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bridge\Twig\Attribute\Template;
@@ -62,5 +63,16 @@ class DefaultController extends FrontendController
 
         return [];
     }
+
+    public function productAction(Request $request): Response
+    {
+        if($request->get('type') == 'object') {
+            if($products = Products::getById($request->get('id'))) {
+                return $this->render('default/product-renderlet.html.twig', ['products' => $products]);
+            }
+        }
+
+    }
+
 
 }

@@ -51,6 +51,9 @@ services:
     # CONTROLLERS
     #
 
+    App\Service\SearchService:
+        public: true
+
     # auto-register all controllers as services
     App\Controller\:
         resource: '../src/Controller'

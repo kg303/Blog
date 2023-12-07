@@ -1,0 +1,32 @@
+<div class="teaser card custom-standard-card mb-4 shadow-sm">
+    <div class="text-decoration-none text-dark">
+
+        {% if products.image %}
+            {{ pimcore_image_thumbnail_html(products.image, 'productThumbnail', { imgAttributes: {class: 'img-fluid'} }) }}
+        {% endif %}
+
+        {% if products is defined and products.name is defined %}
+            <h4 class="card-title pricing-card-title text-uppercase">{{ products.name }}</h4>
+        {% endif %}
+
+        <div class="card-body">
+            {% if products is defined and products.description is defined %}
+                <p class="card-text">
+                    {{ products.description | striptags | slice(0, 150) ~ '...' }}
+                </p>
+            {% else %}
+                <p>Product information not available.</p>
+            {% endif %}
+
+            <div class="price_box">
+                <h6 class="price_heading" style="color: #4fbdc7;">
+                    <span >$</span> {{ products.price }}
+                </h6>
+                <a href="">
+                    Buy Now
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

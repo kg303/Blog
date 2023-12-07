@@ -1,0 +1,67 @@
+{# src/Resources/views/search/results.html.twig #}
+{% extends 'layouts/layout.html.twig' %}
+
+    {% block title %}Search Results{% endblock %}
+
+    {% block content %}
+        <h1>Search Results</h1>
+
+        {% if results['dataObjects'] is not empty %}
+            <ul>
+                {% for result in results['dataObjects'] %}
+                    <div class="container">
+                        <div class="row g-5 mt-3">
+                            <div class="col-md-8">
+                                <article class="blog-post">
+                                    <h2 class="blog-post-title">{{ result.title is defined ? result.title : '' }}</h2>
+                                    <p class="blog-post-meta">
+                                        {{ result.date is defined ? result.date : '' }}
+                                        by <b>{{ result.postedBy is defined ? result.postedBy : ''}}</b>
+                                    </p>
+
+                                    <p>{{ result.shortDescription is defined ? result.shortDescription : '' }}</p>
+                                    <hr>
+                                    {{ (result.content is defined ? result.content : '') | raw }}
+                                </article>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="pe-2">Tags:</span>
+
+                                        {% if result.tags is defined and (result.tags | length > 0) %}
+                                            {% for tag in result.tags %}
+                                                <a href="{{ pimcore_url({query: tag.name}, 'Blogger') }}">
+                                                    <span class="badge bg-secondary">{{ tag.name is defined ? tag.name : '' }}</span>
+                                                </a>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="position-sticky" style="top: 2rem;">
+                                    {% if result.about is defined and result.about is not null %}
+                                        <div class="p-4 mb-3 bg-light rounded">
+                                            <h4 class="fst-italic">About</h4>
+                                            <p class="mb-0">{{ result.about }}</p>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if result.ad is defined and result.ad is not null %}
+                                        <div class="mb-3 bg-light rounded">
+                                            {{ result.ad | raw }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# Add other fields or customize as needed #}
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+
+    {% endblock %}

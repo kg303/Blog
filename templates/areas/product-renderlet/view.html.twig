@@ -1,0 +1,17 @@
+<section class="area-standard-teaser bg-light text-center">
+    <div class="container">
+        <div class="row">
+            {% for t in pimcore_block('contentblock').iterator %}
+                <div class="col-md-4">
+                    {{
+                    pimcore_renderlet('product' ~ t, {
+                        'controller': 'App\\Controller\\DefaultController::productAction',
+                        'height': 400,
+                        'title': 'Drag a product object here'
+                    })
+                    }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

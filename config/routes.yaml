@@ -4,3 +4,8 @@ _pimcore:
 app:
     resource: "../src/Controller/"
     type: annotation
+
+search:
+    path: /search
+    controller: App\Controller\SearchController::searchAction
+    methods: ['GET']
