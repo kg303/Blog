@@ -81,6 +81,27 @@
 
 
     {% include 'includes/header.html.twig' %}
+    {% set showBreadcrumbs = (hideBreadcrumbs is defined) ? not hideBreadcrumbs : true %}
+    {% if showBreadcrumbs %}
+        {% set mainNavStartNode = document.getProperty('navigation_root') %}
+        {% if mainNavStartNode is empty %}
+            {% set mainNavStartNode = pimcore_document(1) %}
+        {% endif %}
+
+        {% set breadbrumbs = pimcore_build_nav({
+            active: document,
+            root: mainNavStartNode
+        }) %}
+        {% do pimcore_nav_renderer('breadcrumbs').setMinDepth(null) %}
+
+        <div style="text-align: center;">
+            <div class="breadcrumb-header" style="display: inline-block; text-align: left;">
+                <a href="{{ mainNavStartNode }}" style="text-decoration: none; color: #4fbdc7;">{{ "Home"|trans }}</a> &gt;
+                <span style="text-decoration: none; color: #4fbdc7;">{{ pimcore_render_nav(breadbrumbs, 'breadcrumbs') }}</span>
+            </div>
+        </div>
+
+    {% endif %}
 
     {{ block('content') }}
 

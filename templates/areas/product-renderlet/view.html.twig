@@ -1,17 +1,23 @@
 <section class="area-standard-teaser bg-light text-center">
-    <div class="container">
-        <div class="row">
-            {% for t in pimcore_block('contentblock').iterator %}
-                <div class="col-md-4">
-                    {{
-                    pimcore_renderlet('product' ~ t, {
-                        'controller': 'App\\Controller\\DefaultController::productAction',
-                        'height': 400,
-                        'title': 'Drag a product object here'
-                    })
-                    }}
-                </div>
-            {% endfor %}
+    {% set block = pimcore_block('product-renderlet', {'manual' : true}).start() %}
+        <div class="container">
+            <div class="row">
+                {% for b in block.iterator %}
+                    <div class="col-md-4">
+                        {% do block.blockConstruct() %}
+                        {% do block.blockStart() %}
+                            {{
+                            pimcore_renderlet('product' ~ b, {
+                                'controller': 'App\\Controller\\DefaultController::productAction',
+                                'height': 400,
+                                'title': 'Drag a product object here'
+                            })
+                            }}
+                        {% do block.blockEnd() %}
+                        {% do block.blockDestruct() %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+
 </section>

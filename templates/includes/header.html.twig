@@ -10,6 +10,7 @@
             {% else %}
                 {% set navStartNode = pimcore_document(1) %}
             {% endif %}
+
         {% endif %}
 
         {% set mainNavigation = pimcore_build_nav({active: document, root: navStartNode}) %}

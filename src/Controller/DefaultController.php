@@ -71,6 +71,7 @@ class DefaultController extends FrontendController
                 return $this->render('default/product-renderlet.html.twig', ['products' => $products]);
             }
         }
+        return new Response();
 
     }
 
