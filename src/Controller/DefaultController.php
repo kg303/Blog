@@ -75,5 +75,10 @@ class DefaultController extends FrontendController
 
     }
 
+    public function aboutAction(Request $request)
+    {
+        return $this->renderTemplate('about/index.html.twig', []);
+    }
+
 
 }

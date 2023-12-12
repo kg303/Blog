@@ -1,86 +1,41 @@
 <!-- client section -->
-
+{% set block = pimcore_block('testimonial-carousel', {'manual' : true}).start() %}
 <section class="client_section layout_padding-bottom">
     <div class="container">
-        <div class="heading_container">
-            <h2>
-                Testimonial
+
+            <h2 id="title" style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
+                {{ pimcore_input('sectionheadline') }}
             </h2>
-        </div>
+
         <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-md-11 col-lg-10 mx-auto">
-                            <div class="box">
-                                <div class="img-box">
-                                    <img src="static/images/client.jpg" alt="" />
-                                </div>
-                                <div class="detail-box">
-                                    <div class="name">
-                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                        <h6>
-                                            Siaalya
-                                        </h6>
+
+
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-11 col-lg-10 mx-auto">
+                                    <div class="box">
+                                        <div class="img-box">
+                                            {{ pimcore_image('clientimage', {
+                                                'thumbnail': 'clientThumb'
+                                            }) }}
+                                        </div>
+                                        <div class="detail-box">
+                                            <div class="name">
+                                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                                <h6>
+                                                    {{ pimcore_input('client') }}
+                                                </h6>
+                                            </div>
+                                            <p>
+                                                {{ pimcore_textarea('testimonialtext') }}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p>
-                                        It is a long established fact that a reader will be
-                                        distracted by the readable cIt is a long established fact
-                                        that a reader will be distracted by the readable c
-                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-11 col-lg-10 mx-auto">
-                            <div class="box">
-                                <div class="img-box">
-                                    <img src="static/images/client.jpg" alt="" />
-                                </div>
-                                <div class="detail-box">
-                                    <div class="name">
-                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                        <h6>
-                                            Siaalya
-                                        </h6>
-                                    </div>
-                                    <p>
-                                        It is a long established fact that a reader will be
-                                        distracted by the readable cIt is a long established fact
-                                        that a reader will be distracted by the readable c
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-11 col-lg-10 mx-auto">
-                            <div class="box">
-                                <div class="img-box">
-                                    <img src="static/images/client.jpg" alt="" />
-                                </div>
-                                <div class="detail-box">
-                                    <div class="name">
-                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                        <h6>
-                                            Siaalya
-                                        </h6>
-                                    </div>
-                                    <p>
-                                        It is a long established fact that a reader will be
-                                        distracted by the readable cIt is a long established fact
-                                        that a reader will be distracted by the readable c
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="carousel_btn-container">
                 <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
@@ -95,5 +50,5 @@
         </div>
     </div>
 </section>
-
+{% do block.end() %}
 <!-- end client section -->

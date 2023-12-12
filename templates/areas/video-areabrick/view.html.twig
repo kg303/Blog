@@ -1,0 +1,27 @@
+{% set block = pimcore_block('video-areabrick', {'manual' : true, 'limit' : 4}).start() %}
+<section id="video-areabrick" style="display: flex; justify-content: center; align-items: center;">
+        {% for b in block.iterator %}
+                    {% do block.blockConstruct() %}
+                        {% do block.blockStart() %}
+
+                            <div style="padding: 10px;">
+                                {{ pimcore_video('video', {
+                                        width: 400,
+                                        height: 400,
+                                        youtube: {
+                                            autoplay: true,
+                                            modestbranding: true
+                                        },
+                                        vimeo: {
+                                            autoplay: true,
+                                            loop: true
+                                        }
+                                    })
+                                }}
+                            </div>
+
+                         {% do block.blockEnd() %}
+                    {% do block.blockDestruct() %}
+        {% endfor %}
+</section>
+{% do block.end() %}

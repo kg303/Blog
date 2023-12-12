@@ -1,0 +1,30 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block content %}
+<!-- about section -->
+<section class="about_section layout_padding long_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    {{ pimcore_image('aboutimage', {
+                        'thumbnail': 'aboutThumb'
+                    }) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <h2 style="font-weight: bold;">
+                        {{ pimcore_input('abouthead') }}
+                    </h2>
+                    <p>
+                        {{ pimcore_textarea('aboutdescription') }}
+                    </p>
+                        {{ pimcore_link('More', {'class': "btn3"}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end about section -->
+{% endblock %}
