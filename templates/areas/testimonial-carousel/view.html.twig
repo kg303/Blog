@@ -1,42 +1,54 @@
 <!-- client section -->
-{% set block = pimcore_block('testimonial-carousel', {'manual' : true}).start() %}
+{% set clientBlock = pimcore_block('client-carousel', {'manual' : true}).start() %}
+
 <section class="client_section layout_padding-bottom">
     <div class="container">
-
-            <h2 id="title" style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
-                {{ pimcore_input('sectionheadline') }}
-            </h2>
+        <h2 id="title" style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
+            {{ pimcore_input('sectionheadline') }}
+        </h2>
 
         <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
 
+                {% for i, b in pimcore_iterate_block(clientBlock) %}
+                    {% do clientBlock.blockConstruct() %}
+                    <div class="carousel-item{{ i == 0 ? ' active' : '' }}">
+                        {% do clientBlock.blockStart() %}
 
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-md-11 col-lg-10 mx-auto">
-                                    <div class="box">
-                                        <div class="img-box">
-                                            {{ pimcore_image('clientimage', {
-                                                'thumbnail': 'clientThumb'
-                                            }) }}
-                                        </div>
-                                        <div class="detail-box">
-                                            <div class="name">
-                                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                                <h6>
-                                                    {{ pimcore_input('client') }}
-                                                </h6>
-                                            </div>
-                                            <p>
-                                                {{ pimcore_textarea('testimonialtext') }}
-                                            </p>
-                                        </div>
+                        <div class="row">
+                            <div class="col-md-11 col-lg-10 mx-auto">
+                                <div class="box">
+
+                                    <!--Slider elements-->
+                                    <div class="img-box">
+                                        {{ pimcore_image('clientimage', {
+                                            'thumbnail': 'clientThumb'
+                                        }) }}
                                     </div>
+                                    <div class="detail-box">
+                                        <div class="name">
+                                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                            <h6>
+                                                {{ pimcore_input('client') }}
+                                            </h6>
+                                        </div>
+                                        <p>
+                                            {{ pimcore_textarea('testimonialtext') }}
+                                        </p>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
+                        {% do clientBlock.blockEnd() %}
+                    </div>
+
+                    {% do clientBlock.blockDestruct() %}
+                {% endfor %}
+
             </div>
+
             <div class="carousel_btn-container">
                 <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
                     <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
@@ -50,5 +62,7 @@
         </div>
     </div>
 </section>
-{% do block.end() %}
+
+{% do clientBlock.end() %}
+
 <!-- end client section -->
