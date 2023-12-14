@@ -9,6 +9,28 @@
                     Latest Blog
                 </h2>
             </div>
+
+            <div>
+                <form>
+                    <fieldset>
+                        <legend>Filters</legend>
+
+                        <div class="mb-3">
+                            <label for="categories" class="form-label">Select categories</label>
+                            <select id="categories" class="form-select categories-select" name="categories[]" multiple>
+                                {% for blog_post_category in blog_post_categories %}
+                                    <option {{ blog_post_category.id in app.request.get('categories', []) ? 'selected' : '' }}
+                                        value="{{ blog_post_category.id }}">
+                                        {{ blog_post_category.name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </fieldset>
+                </form>
+            </div>
+
             <div class="row">
                 {% for post in blogpost %}
                     <div class="col-md-6 col-lg-4 mx-auto">

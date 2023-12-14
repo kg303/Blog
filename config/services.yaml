@@ -82,6 +82,14 @@ services:
         public: true
 
 
+    # Repositories
+    App\Repository\:
+        resource: '../src/Repository/*'
+
+    # Services
+    App\Service\Blog\:
+        resource: '../src/Service/Blog/*'
+
     # Example custom templating helper
     # App\Templating\Helper\Example:
     #     # templating helpers need to be public as they
