@@ -72,6 +72,16 @@ services:
         volumes:
             - pimcore-test-database:/var/lib/mysql
 
+    phpmyadmin-db:
+        image: phpmyadmin/phpmyadmin:latest
+        #    restart: always
+        environment:
+            PMA_HOST: db
+            PMA_USER: pimcore
+            PMA_PASSWORD: pimcore
+        ports:
+            - "8080:80"
+
     test-php:
         profiles: [ 'test' ]
         extends: php
