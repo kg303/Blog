@@ -1,0 +1,33 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    galleryCarousel:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 900
+                                    height: 473
+                                    positioning: center
+                                    forceResize: true
+                            -
+                                method: scaleByWidth
+                                arguments:
+                                    width: null
+                                    forceResize: false
+                        medias: {  }
+                        name: galleryCarousel
+                        description: ''
+                        group: Areas
+                        format: SOURCE
+                        quality: 85
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1701681756
+                        creationDate: 1701263569
+                        preserveAnimation: false

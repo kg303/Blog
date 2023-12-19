@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9682d03a2e219e33f8c42cf9f1cbaa68",
+    "content-hash": "625d6a8bddfe1432d1610eb2b260c338",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5422,6 +5422,59 @@
                 "source": "https://github.com/scheb/2fa-google-authenticator/tree/v6.11.0"
             },
             "time": "2023-11-23T15:37:28+00:00"
+        },
+        {
+            "name": "shuchkin/simplexlsx",
+            "version": "1.0.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shuchkin/simplexlsx.git",
+                "reference": "978e4bc2c377d4f1e83ad681705d0327a3725ef4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shuchkin/simplexlsx/zipball/978e4bc2c377d4f1e83ad681705d0327a3725ef4",
+                "reference": "978e4bc2c377d4f1e83ad681705d0327a3725ef4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-libxml": "*",
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
+                "ext-zlib": "*",
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/SimpleXLSX.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Shuchkin (SMSPILOT)",
+                    "email": "sergey.shuchkin@gmail.com",
+                    "homepage": "https://github.com/shuchkin"
+                }
+            ],
+            "description": "Parse and retrieve data from Excel XLSx files. MS Excel 2007 workbooks PHP reader.",
+            "homepage": "https://github.com/shuchkin/simplexlsx",
+            "keywords": [
+                "backend",
+                "excel",
+                "parser",
+                "php",
+                "xlsx"
+            ],
+            "support": {
+                "issues": "https://github.com/shuchkin/simplexlsx/issues",
+                "source": "https://github.com/shuchkin/simplexlsx/tree/1.0.19"
+            },
+            "time": "2023-02-03T20:26:49+00:00"
         },
         {
             "name": "spatie/image-optimizer",

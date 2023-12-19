@@ -1,0 +1,26 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    clientThumb:
+                        items:
+                            -
+                                method: resize
+                                arguments:
+                                    width: 155
+                                    height: 155
+                        medias: {  }
+                        name: clientThumb
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1702392381
+                        creationDate: 1702392341
+                        preserveAnimation: false

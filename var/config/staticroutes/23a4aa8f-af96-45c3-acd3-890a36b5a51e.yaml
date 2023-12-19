@@ -1,0 +1,14 @@
+pimcore_static_routes:
+    definitions:
+        23a4aa8f-af96-45c3-acd3-890a36b5a51e:
+            name: Blogger
+            pattern: /Blogger
+            reverse: /Blogger
+            controller: null
+            variables: ''
+            defaults: ''
+            siteId: {  }
+            methods: {  }
+            priority: 0
+            creationDate: 1701867536
+            modificationDate: 1701868025

@@ -1,0 +1,14 @@
+pimcore:
+    documents:
+        doc_types:
+            definitions:
+                5fd58d5a-0f04-4d69-947a-13382042d68f:
+                    name: Home
+                    group: ''
+                    controller: 'App\Controller\HomeController::homeAction'
+                    template: null
+                    type: page
+                    priority: 0
+                    creationDate: 1701165112
+                    modificationDate: 1701165124
+                    staticGeneratorEnabled: false

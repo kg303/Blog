@@ -1,0 +1,26 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    aboutThumb:
+                        items:
+                            -
+                                method: resize
+                                arguments:
+                                    width: 555
+                                    height: 261
+                        medias: {  }
+                        name: aboutThumb
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 100
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1702383411
+                        creationDate: 1702383039
+                        preserveAnimation: false

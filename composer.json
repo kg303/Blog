@@ -12,8 +12,10 @@
   },
   "prefer-stable": true,
   "require": {
+    "phpoffice/phpspreadsheet": "^1.29",
     "pimcore/admin-ui-classic-bundle": "^1.0",
     "pimcore/pimcore": "^11.0.4",
+    "shuchkin/simplexlsx": "^1.0",
     "symfony/dotenv": "^6.2",
     "symfony/runtime": "^6.2",
     "twbs/bootstrap": "5.3.2"
