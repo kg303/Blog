@@ -44,8 +44,8 @@ class BlogController extends FrontendController
         }
         $paginator = $paginator->paginate(
             $blogPostList,
-            $request->get('page', 1),
-            1
+            $request->get('page', 4),
+            4
         );
 
         return $this->render('blog/index.html.twig', [

@@ -32,7 +32,7 @@ class ImportNewsCommand extends AbstractCommand
         $excelFilePath = 'data-import/news_articles.xlsx';
 
         // Set the parent folder for new blog posts
-        $parentFolder = Folder::getByPath('/BlogPosts/Imported');
+        $parentFolder = Folder::getByPath('/BlogPosts/Books');
 
         if (!$parentFolder instanceof Folder) {
             $output->writeln('Error: Parent folder not found.');
@@ -58,7 +58,7 @@ class ImportNewsCommand extends AbstractCommand
                 // Set other properties based on your Excel columns
                 $news->setTitle($row[1]);
                 $news->setShortDescription($row[2]);
-                $news->setPostedBy($row[3]);
+                $news->setContent($row[3]);
                 // Set other properties as needed
 
                 $news->setParent($parentFolder);
@@ -66,7 +66,7 @@ class ImportNewsCommand extends AbstractCommand
                 // Save the Data Object
                 $news->save();
 
-                $output->writeln("Imported: News ID - $newsId, Title - {$news->getTitle()}, Description - {$news->getShortDescription()}, Author - {$news->getPostedBy()}");
+                $output->writeln("Imported: News ID - $newsId, Title - {$news->getTitle()}, Description - {$news->getShortDescription()}, Content - {$news->getContent()}");
             }
 
             $output->writeln('Import completed.');
