@@ -81,6 +81,9 @@ services:
     App\Website\LinkGenerator\BlogPostLinkGenerator:
         public: true
 
+    App\Command\ExportNewsCommand:
+        tags:
+            - { name: 'console.command' }
 
     # Repositories
     App\Repository\:
