@@ -12,6 +12,7 @@
   },
   "prefer-stable": true,
   "require": {
+    "dachcom-digital/seo": "^3.0",
     "phpoffice/phpspreadsheet": "^1.29",
     "pimcore/admin-ui-classic-bundle": "^1.0",
     "pimcore/pimcore": "^11.0.4",

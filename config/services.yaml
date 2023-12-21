@@ -105,3 +105,12 @@ services:
     # App\EventListener\TestListener:
     #     tags:
     #         - { name: kernel.event_listener, event: pimcore.dataobject.preUpdate, method: onObjectPreUpdate }
+
+     # ---------------------------------------------------------
+     # SEO bundle
+     # ---------------------------------------------------------
+
+    App\MetaData\Extractor\ArticleExtractor:
+        tags:
+            - { name: seo.meta_data.extractor, identifier: article_extractor, priority: 1 }
+

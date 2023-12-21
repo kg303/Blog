@@ -1,5 +1,6 @@
 <?php
 
+
 return [
     Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle::class => ['all' => true],
     Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle::class => ['all' => true],
@@ -9,5 +10,6 @@ return [
     Pimcore\Bundle\TinymceBundle\PimcoreTinymceBundle::class => ['all' => true],
     Pimcore\Bundle\UuidBundle\PimcoreUuidBundle::class => ['all' => true],
     Pimcore\Bundle\WordExportBundle\PimcoreWordExportBundle::class => ['all' => true],
+    \SeoBundle\SeoBundle::class => ['all' => true],
     Pimcore\Bundle\XliffBundle\PimcoreXliffBundle::class => ['all' => true],
 ];

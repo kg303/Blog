@@ -1,5 +1,10 @@
 {% extends 'layouts/layout.html.twig' %}
 
+{% block layout_head_meta %}
+    {% do seo_update_metadata(blogpost, app.request.locale) %}
+    {{ parent() }}
+{% endblock layout_head_meta %}
+
 {% block content %}
 
     <!-- BLOG SINGLE START -->
