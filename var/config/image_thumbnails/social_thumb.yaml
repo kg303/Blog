@@ -1,0 +1,26 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    social_thumb:
+                        items:
+                            -
+                                method: resize
+                                arguments:
+                                    width: 350
+                                    height: 350
+                        medias: {  }
+                        name: social_thumb
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1703168838
+                        creationDate: 1703168803
+                        preserveAnimation: false

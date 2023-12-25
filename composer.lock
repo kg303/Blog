@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21e13c2f0896cc245913792197115b81",
+    "content-hash": "976361df4101cc8d8a82041c55d9b2b4",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2331,6 +2331,81 @@
             "time": "2023-11-30T15:49:27+00:00"
         },
         {
+            "name": "gotenberg/gotenberg-php",
+            "version": "v1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gotenberg/gotenberg-php.git",
+                "reference": "33298eb81eb8e63fb0aaca71607f98b553a3bb50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gotenberg/gotenberg-php/zipball/33298eb81eb8e63fb0aaca71607f98b553a3bb50",
+                "reference": "33298eb81eb8e63fb0aaca71607f98b553a3bb50",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/psr7": "^1 || ^2.1",
+                "php": "^7.4|^8.0|^8.1|^8.2|^8.3",
+                "php-http/discovery": "^1.14",
+                "psr/http-client": "^1.0",
+                "psr/http-message": "^1.0|^2.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^9.0",
+                "pestphp/pest": "^1.21",
+                "phpstan/phpstan": "^1.2",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gotenberg\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Julien Neuhart",
+                    "email": "neuhart.julien@gmail.com",
+                    "homepage": "https://github.com/gulien",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP client for interacting with Gotenberg, a developer-friendly API for converting numerous document formats into PDF files, and more!",
+            "homepage": "https://github.com/gotenberg/gotenberg-php",
+            "keywords": [
+                "Gotenberg",
+                "LibreOffice",
+                "chrome",
+                "chromium",
+                "convert",
+                "csv",
+                "docx",
+                "excel",
+                "html",
+                "markdown",
+                "pdf",
+                "pdftk",
+                "pptx",
+                "puppeteer",
+                "unoconv",
+                "wkhtmltopdf",
+                "word",
+                "xlsx"
+            ],
+            "support": {
+                "issues": "https://github.com/gotenberg/gotenberg-php/issues",
+                "source": "https://github.com/gotenberg/gotenberg-php/tree/v1.18"
+            },
+            "time": "2023-12-16T13:53:33+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "7.8.1",
             "source": {
@@ -4499,6 +4574,84 @@
             "time": "2017-08-25T06:16:11+00:00"
         },
         {
+            "name": "php-http/discovery",
+            "version": "1.19.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/discovery.git",
+                "reference": "61e1a1eb69c92741f5896d9e05fb8e9d7e8bb0cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/61e1a1eb69c92741f5896d9e05fb8e9d7e8bb0cb",
+                "reference": "61e1a1eb69c92741f5896d9e05fb8e9d7e8bb0cb",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0|^2.0",
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "nyholm/psr7": "<1.0",
+                "zendframework/zend-diactoros": "*"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "*",
+                "php-http/client-implementation": "*",
+                "psr/http-client-implementation": "*",
+                "psr/http-factory-implementation": "*",
+                "psr/http-message-implementation": "*"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0.2|^2.0",
+                "graham-campbell/phpspec-skip-example-extension": "^5.0",
+                "php-http/httplug": "^1.0 || ^2.0",
+                "php-http/message-factory": "^1.0",
+                "phpspec/phpspec": "^5.1 || ^6.1 || ^7.3",
+                "symfony/phpunit-bridge": "^6.2"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Http\\Discovery\\Composer\\Plugin",
+                "plugin-optional": true
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Discovery\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "src/Composer/Plugin.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Finds and installs PSR-7, PSR-17, PSR-18 and HTTPlug implementations",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "adapter",
+                "client",
+                "discovery",
+                "factory",
+                "http",
+                "message",
+                "psr17",
+                "psr7"
+            ],
+            "support": {
+                "issues": "https://github.com/php-http/discovery/issues",
+                "source": "https://github.com/php-http/discovery/tree/1.19.2"
+            },
+            "time": "2023-11-30T16:49:05+00:00"
+        },
+        {
             "name": "phpoffice/phpspreadsheet",
             "version": "1.29.0",
             "source": {
@@ -4765,6 +4918,99 @@
             "time": "2023-12-14T14:35:10+00:00"
         },
         {
+            "name": "pimcore/bundle-generator",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pimcore/bundle-generator.git",
+                "reference": "411ab3b2187e07d049990452f825e772794e0e88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pimcore/bundle-generator/zipball/411ab3b2187e07d049990452f825e772794e0e88",
+                "reference": "411ab3b2187e07d049990452f825e772794e0e88",
+                "shasum": ""
+            },
+            "require": {
+                "pimcore/pimcore": "^11.0"
+            },
+            "type": "pimcore-bundle",
+            "extra": {
+                "pimcore": {
+                    "bundles": [
+                        "Pimcore\\Bundle\\BundleGeneratorBundle\\PimcoreBundleGeneratorBundle"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pimcore\\Bundle\\BundleGeneratorBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "description": "Pimcore Bundle Generator",
+            "support": {
+                "issues": "https://github.com/pimcore/bundle-generator/issues",
+                "source": "https://github.com/pimcore/bundle-generator/tree/v2.0.0"
+            },
+            "time": "2023-05-03T12:45:56+00:00"
+        },
+        {
+            "name": "pimcore/output-data-config-toolkit-bundle",
+            "version": "v5.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pimcore/output-data-config-toolkit.git",
+                "reference": "253b06dd42bd544b954375050e2adb4a6c77db11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/253b06dd42bd544b954375050e2adb4a6c77db11",
+                "reference": "253b06dd42bd544b954375050e2adb4a6c77db11",
+                "shasum": ""
+            },
+            "require": {
+                "pimcore/pimcore": "^11.0",
+                "symfony/config": "^6.2",
+                "symfony/dependency-injection": "^6.2",
+                "symfony/event-dispatcher": "^6.2",
+                "symfony/event-dispatcher-contracts": "^3.0",
+                "symfony/http-foundation": "^6.2",
+                "symfony/http-kernel": "^6.2",
+                "symfony/routing": "^6.2",
+                "symfony/templating": "^6.2"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10.5",
+                "phpstan/phpstan-symfony": "^1.2.20"
+            },
+            "type": "pimcore-bundle",
+            "extra": {
+                "pimcore": {
+                    "bundles": [
+                        "OutputDataConfigToolkitBundle\\OutputDataConfigToolkitBundle"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OutputDataConfigToolkitBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "support": {
+                "issues": "https://github.com/pimcore/output-data-config-toolkit/issues",
+                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v5.0.1"
+            },
+            "time": "2023-06-21T16:02:46+00:00"
+        },
+        {
             "name": "pimcore/pimcore",
             "version": "v11.1.3",
             "source": {
@@ -4971,6 +5217,109 @@
                 "wiki": "https://pimcore.com/docs/latest/"
             },
             "time": "2023-12-06T12:58:13+00:00"
+        },
+        {
+            "name": "pimcore/web-to-print-bundle",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pimcore/web-to-print-bundle.git",
+                "reference": "70b7474d17b7b792cd6f52e45100aab58b5a5f7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pimcore/web-to-print-bundle/zipball/70b7474d17b7b792cd6f52e45100aab58b5a5f7f",
+                "reference": "70b7474d17b7b792cd6f52e45100aab58b5a5f7f",
+                "shasum": ""
+            },
+            "require": {
+                "pimcore/admin-ui-classic-bundle": "^1.1",
+                "pimcore/pimcore": "^11.0"
+            },
+            "require-dev": {
+                "chrome-php/chrome": "^1.8",
+                "codeception/codeception": "^5.0.3",
+                "codeception/module-symfony": "^3.1.0",
+                "codeception/phpunit-wrapper": "^9",
+                "gotenberg/gotenberg-php": "^1.0.0",
+                "phpstan/phpstan": "^1.10.5",
+                "phpstan/phpstan-symfony": "^1.2.20"
+            },
+            "suggest": {
+                "chrome-php/chrome": "Required for Documents Page Previews",
+                "gotenberg/gotenberg-php": "Required for generating pdf via Gotenberg in assets preview (LibreOffice), page preview, version diff and web2print"
+            },
+            "type": "pimcore-bundle",
+            "extra": {
+                "pimcore": {
+                    "bundles": [
+                        "Pimcore\\Bundle\\WebToPrintBundle\\PimcoreWebToPrintBundle"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pimcore\\Bundle\\WebToPrintBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Pimcore WebToPrint Bundle",
+            "support": {
+                "issues": "https://github.com/pimcore/web-to-print-bundle/issues",
+                "source": "https://github.com/pimcore/web-to-print-bundle/tree/v1.1.0"
+            },
+            "time": "2023-12-06T11:16:35+00:00"
+        },
+        {
+            "name": "pimcore/web2print-tools-bundle",
+            "version": "v5.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pimcore/web2print-tools.git",
+                "reference": "fa584304de0ad657d34639443aa28190feee9f41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/fa584304de0ad657d34639443aa28190feee9f41",
+                "reference": "fa584304de0ad657d34639443aa28190feee9f41",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.1.0 || ~8.2.0",
+                "pimcore/output-data-config-toolkit-bundle": "^4.1 || ^5.0",
+                "pimcore/pimcore": "^11.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.9"
+            },
+            "suggest": {
+                "pimcore/admin-ui-classic-bundle": "Required for Pimcore 11"
+            },
+            "type": "pimcore-bundle",
+            "extra": {
+                "pimcore": {
+                    "bundles": [
+                        "Web2PrintToolsBundle\\Web2PrintToolsBundle"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Web2PrintToolsBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "support": {
+                "issues": "https://github.com/pimcore/web2print-tools/issues",
+                "source": "https://github.com/pimcore/web2print-tools/tree/v5.0.1"
+            },
+            "time": "2023-06-21T07:32:30+00:00"
         },
         {
             "name": "presta/sitemap-bundle",
@@ -14288,5 +14637,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }

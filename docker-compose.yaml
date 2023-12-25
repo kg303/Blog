@@ -63,6 +63,11 @@ services:
             - .:/var/www/html
             - ./.docker/supervisord.conf:/etc/supervisor/conf.d/pimcore.conf:ro
 
+
+
+    gotenberg:
+        image: gotenberg/gotenberg:7
+
     # The following two services are used for testing.
     # We restrict these services to the test profile only, so we don't spin them up with every `docker compose up`.
     # See: https://docs.docker.com/compose/profiles/

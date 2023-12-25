@@ -1,0 +1,5 @@
+blog_listing:
+    resource: "@BlogListingBundle/src/Controller/"
+    type:     annotation
+    prefix:   /
+
