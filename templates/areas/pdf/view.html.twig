@@ -1,0 +1,13 @@
+<style>
+    .area-pdf {
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+    }
+</style>
+
+<section class="area-pdf">
+    {{ pimcore_pdf('pdf', {
+        "thumbnail": "pdfThumb"
+    }) }}
+</section>

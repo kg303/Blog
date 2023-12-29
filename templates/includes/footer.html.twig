@@ -1,23 +1,32 @@
-<!-- FOOTER -->
-<footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-5 border-top mt-auto">
-    <div class="col-md-4 d-flex align-items-center">
-        <span class="text-muted">{{ pimcore_input('copyright') }}</span>
+<section class="info_section long_section">
+    <div class="info_top ">
+
+        <!-- FOOTER -->
+            <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-5 border-top mt-auto">
+
+                <div class="col-md-4 text-center my-auto">
+                    <span style="color: white;">{{ pimcore_input('copyright') }}</span>
+                </div>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <div class="info_form">
+                        <div class="social_box">
+                            {% for i in pimcore_block('socials').iterator %}
+                                {% if editmode %}
+                                    {{ pimcore_link('socialUrl') }}
+                                {% else %}
+                                    {% set socialUrl = pimcore_link('socialUrl') %}
+                                    <a href="{{ socialUrl.getHref() }}" class="{{ socialUrl.getclass() }}">
+                                        {{ socialUrl.getText() | raw }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </ul>
+            </footer>
+
+        <!-- FOOTER END -->
+
     </div>
-
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        {% for i in pimcore_block('socials').iterator %}
-            {% if editmode %}
-                {{ pimcore_link('socialUrl') }}
-            {% else %}
-                {% set socialUrl = pimcore_link('socialUrl') %}
-                <li style="margin-right: 10px;">
-                    <a class="text-muted" href="{{ socialUrl.getHref() }}" class="{{ socialUrl.getclass() }}">
-                        {{ socialUrl.getText() | raw }}
-                    </a>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-</footer>
-
-<!-- FOOTER END -->
+</section>
