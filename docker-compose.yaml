@@ -103,8 +103,29 @@ services:
             - pimcore-test-var:/var/www/html/var
             - pimcore-test-public-var:/var/www/html/public/var
 
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+        environment:
+            - cluster.name=docker-cluster
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx1024m"
+            - "discovery.zen.ping.unicast.hosts=elasticsearch"
+            - discovery.type=single-node
+            - xpack.security.enabled=false
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+            nofile: 65536
+        mem_limit: 2g
+        volumes:
+            - project_elasticsearch:/usr/share/elasticsearch/data
+        ports:
+            - "9200:9200"
 volumes:
     pimcore-database:
     pimcore-test-database:
     pimcore-test-var:
     pimcore-test-public-var:
+    project_elasticsearch:
+        driver: local

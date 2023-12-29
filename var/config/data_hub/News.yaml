@@ -1,0 +1,13 @@
+pimcore_data_hub:
+    configurations:
+        News:
+            general:
+                type: graphql
+                path: null
+                name: News
+                modificationDate: 1703600055
+                createDate: 1703600055
+            workspaces: {  }
+            permissions:
+                user: {  }
+                role: {  }
