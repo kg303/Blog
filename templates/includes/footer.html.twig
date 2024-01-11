@@ -1,5 +1,8 @@
 <section class="info_section long_section">
+
+
     <div class="info_top ">
+
 
         <!-- FOOTER -->
             <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-5 border-top mt-auto">
@@ -10,6 +13,17 @@
 
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                     <div class="info_form">
+
+                        <h4>
+                            SIGN UP TO OUR NEWSLETTER
+                        </h4>
+                        <form action="">
+                            <input type="text" placeholder="Enter Your Email" />
+                            <button type="submit">
+                                Subscribe
+                            </button>
+                        </form>
+
                         <div class="social_box">
                             {% for i in pimcore_block('socials').iterator %}
                                 {% if editmode %}
@@ -29,4 +43,5 @@
         <!-- FOOTER END -->
 
     </div>
+
 </section>

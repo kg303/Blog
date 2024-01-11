@@ -22,7 +22,6 @@ return [
     BlogListingBundle\BlogListingBundle::class => ['all' => true],
     Web2PrintToolsBundle::class => ['all' => true],
     PimcoreWebToPrintBundle::class => ['all' => true],
-    AdvancedObjectSearchBundle\AdvancedObjectSearchBundle::class => ['all' => true],
     PimcoreDataHubBundle::class => ['all' => true],
     Pimcore\Bundle\XliffBundle\PimcoreXliffBundle::class => ['all' => true],
 ];

@@ -1,0 +1,23 @@
+{% extends 'layouts/layout.html.twig' %}
+
+    {% block title %}Register Page{% endblock %}
+
+    {% block content %}
+        <section class="login_section info_section">
+
+            <h2>Login</h2>
+            <div class="info_top ">
+                <div class="info_form">
+
+                    <form method="post" action="{{ path('register') }}">
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="text" name="email" placeholder="Email">
+                        <input type="password" name="password" placeholder="Password">
+                        <button type="submit">Register</button>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}

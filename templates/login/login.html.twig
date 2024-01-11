@@ -1,0 +1,31 @@
+{% extends 'layouts/layout.html.twig' %}
+
+    {% block title %}Login Page{% endblock %}
+
+    {% block content %}
+        <section class="login_section info_section">
+
+        <h2>Login</h2>
+            <div class="info_top ">
+                <div class="info_form">
+
+                        <form method="post" action="{{ path('login') }}">
+                            <input type="text" name="username" placeholder="Username">
+                            <input type="password" name="password" placeholder="Password">
+                            <button class="buttons_container" type="submit">Login</button>
+                            <button class="buttons_container" type="button" onclick="redirectToRegister()">Register</button>
+                        </form>
+
+
+                </div>
+            </div>
+
+            <script>
+                function redirectToRegister() {
+                    window.location.href = "{{ path('register') }}";
+                }
+            </script>
+
+        </section>
+
+    {% endblock %}

@@ -70,6 +70,13 @@
                 </ul>
             </div>
             <div class="quote_btn-container">
+                <a href="{{ path('login') }}">
+                  <span>
+                    Login
+                  </span>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+
                 <form class="form-inline" action="{{ path('search') }}" method="get">
                     <input type="text" name="query" class="form-control" placeholder="Search">
                     <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">

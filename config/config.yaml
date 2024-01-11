@@ -147,17 +147,8 @@ pimcore_web_to_print:
                  type: 'settings-store'
 
 
-# Configure an elasticsearch client
-pimcore_elasticsearch_client:
-    es_clients:
-        default:
-            hosts: ['elastic:9200']
-            username: 'elastic'
-            password: 'somethingsecret'
-            logger_channel: 'pimcore.elasticsearch'
 
 
-# Define the client to be used by advanced object search
-advanced_object_search:
-    es_client_name: default  # default is default value here, just need to be specified when other client should be used.
+
+
 

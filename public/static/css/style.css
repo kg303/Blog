@@ -780,6 +780,7 @@ a:focus {
   background-color: #eaeaea;
   outline: none;
   color: #101010;
+
 }
 
 .info_section .info_form button {
@@ -791,6 +792,7 @@ a:focus {
   border: 1px solid #6bb7be;
   -webkit-transition: all .2s;
   transition: all .2s;
+
 }
 
 .info_section .info_form button:hover {
@@ -828,6 +830,24 @@ a:focus {
 .info_section .info_form .social_box a:hover {
   color: #f89646;
   border-color: #f89646;
+}
+
+.login_section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+}
+
+.buttons_container {
+    display: flex;
+    align-items: center; /* You can adjust this property to align buttons as needed */
+    justify-content: center;
+    margin-top: 20px; /* Adjust as needed */
 }
 
 /* footer section*/

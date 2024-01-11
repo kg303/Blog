@@ -65,6 +65,8 @@ services:
     # COMMANDS
     #
 
+
+
     # auto-register all commands as services
     App\Command\:
         resource: '../src/Command/*'
