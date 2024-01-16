@@ -13,8 +13,6 @@ class RegisterController extends AbstractController
 {
 
 
-
-
     /**
      * @Route("/register", name="register")
      */
@@ -22,24 +20,44 @@ class RegisterController extends AbstractController
     {
         if ($request->isMethod('POST')) {
             $username = $request->request->get('username');
+            $email = $request->request->get('email'); // Add this line to get the email
             $password = $request->request->get('password');
 
-            // Validate and persist user
+            try {
+                // Validate input
+                if (empty($username) || empty($email) || empty($password)) {
+                    throw new \Exception('Username, email, and password are required!');
+                }
 
-            $user = new User();
-            $user->setKey(\Pimcore\Model\Element\Service::getValidKey($username, 'object'));
-            $user->setParentId(61);
-            $user->setUsername($username);
-            $user->setPassword($password);
-            $user->save();
+                // Validate and persist user
+                $user = new User();
+                $user->setKey(\Pimcore\Model\Element\Service::getValidKey($username, 'object'));
+                $user->setParentId(61);
+                $user->setUsername($username);
+                $user->setEmail($email); // Set the email value
+                $user->setPassword($password);
 
+                // Check if the fields are empty
+                if (empty($user->getUsername()) || empty($user->getEmail()) || empty($user->getPassword())) {
+                    throw new \Exception('Username, email, and password cannot be empty');
+                }
 
+                // Save the user
+                $user->save();
 
-            // Redirect to a success page or handle it accordingly
-            return $this->render('home/index.html.twig');
+                // Redirect to a success page or handle it accordingly
+                return $this->render('home/index.html.twig');
+            } catch (\Exception $e) {
+                // Redirect back to registration form with an error message
+                return $this->render('login/register.html.twig', ['error' => $e->getMessage()]);
+            }
         }
 
         return $this->render('login/register.html.twig');
     }
+
+
+
+
 }
 

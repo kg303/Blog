@@ -4,6 +4,7 @@ use Pimcore\Bundle\BundleGeneratorBundle\PimcoreBundleGeneratorBundle;
 use Web2PrintToolsBundle\Web2PrintToolsBundle;
 use Pimcore\Bundle\WebToPrintBundle\PimcoreWebToPrintBundle;
 use Pimcore\Bundle\DataHubBundle\PimcoreDataHubBundle;
+use Symfony\Bundle\SecurityBundle\SecurityBundle;
 
 
 
@@ -23,5 +24,9 @@ return [
     Web2PrintToolsBundle::class => ['all' => true],
     PimcoreWebToPrintBundle::class => ['all' => true],
     PimcoreDataHubBundle::class => ['all' => true],
+    Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
+    Pimcore\Bundle\EcommerceFrameworkBundle\PimcoreEcommerceFrameworkBundle::class => ['all' => true],
+    Pimcore\Bundle\NewsletterBundle\PimcoreNewsletterBundle::class => ['all' => true],
+    Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle::class => ['all' => true],
     Pimcore\Bundle\XliffBundle\PimcoreXliffBundle::class => ['all' => true],
 ];

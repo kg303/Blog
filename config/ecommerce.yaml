@@ -1,0 +1,15 @@
+services:
+    App\Ecommerce\MyConfig:
+        parent: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Config\AbstractConfig
+
+pimcore_ecommerce_framework:
+
+    index_service:
+
+        tenants:
+
+            Academy:
+                config_id: 'App\Ecommerce\MyConfig'
+                attributes:
+                    name:
+                        type: 'varchar(255)'

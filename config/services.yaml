@@ -47,9 +47,20 @@ services:
         arguments:
             - '@service_container'
 
+    website_demo.security.user_provider:
+        class: Pimcore\Security\User\ObjectUserProvider
+        arguments: [ 'App\Model\DataObject\User', 'username' ]
+
+    website_demo.security.password_hasher_factory:
+        class: Pimcore\Security\Hasher\Factory\UserAwarePasswordHasherFactory
+        arguments:
+            - Pimcore\Security\Hasher\PasswordFieldHasher
+            - [ 'password' ]
+
     #
     # CONTROLLERS
     #
+
 
     App\Service\SearchService:
         public: true

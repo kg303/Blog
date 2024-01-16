@@ -17,3 +17,9 @@ login:
 register:
     path: /register
     controller: App\Controller\RegisterController::register
+
+cartadd:
+    path: '/academy/cartadd/{id}'
+    controller: 'App\Controller\DefaultController::addToCartAction'
+    requirements:
+        id: '\d+'

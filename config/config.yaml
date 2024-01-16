@@ -1,12 +1,19 @@
 imports:
     - { resource: 'local/' }
     - { resource: 'seo.yaml' }
+    - { resource: 'ecommerce.yaml'}
+    - { resource: 'services.yaml'}
 
 
 pimcore:
     bundles:
         search_paths:
             - bundles/BlogListingBundle
+
+    models:
+        class_overrides:
+            'Pimcore\Model\DataObject\User': 'App\Model\DataObject\User'
+#            'Pimcore\Model\DataObject\Product': 'App\Model\DataObject\MyProduct'
 
     gotenberg:
         base_url: 'http://gotenberg:3000'

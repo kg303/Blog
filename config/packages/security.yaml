@@ -1,5 +1,14 @@
+pimcore:
+    security:
+        # the password hasher factory as defined in services.yaml
+        password_hasher_factories:
+            App\Model\DataObject\User: website_demo.security.password_hasher_factory
+
 security:
     enable_authenticator_manager: true
+
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
 
     providers:
         pimcore_admin:
@@ -9,6 +18,8 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+
 
         # Pimcore WebDAV HTTP basic // DO NOT CHANGE!
         pimcore_webdav:

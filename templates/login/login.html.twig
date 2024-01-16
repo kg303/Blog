@@ -5,13 +5,21 @@
     {% block content %}
         <section class="login_section info_section">
 
-        <h2>Login</h2>
+        <h2 class="black-text">Login</h2>
             <div class="info_top ">
                 <div class="info_form">
 
+                    {% if errormessage is defined and errormessage %}
+                        <p class="error">{{ errormessage }}</p>
+                    {% endif %}
+
+                    {% if successMessage is defined and successMessage %}
+                        <p class="success">{{ successMessage }}</p>
+                    {% endif %}
+
                         <form method="post" action="{{ path('login') }}">
-                            <input type="text" name="username" placeholder="Username">
-                            <input type="password" name="password" placeholder="Password">
+                            <input type="text" name="username" placeholder="Username" class="input-field">
+                            <input type="password" name="password" placeholder="Password" class="input-field">
                             <button class="buttons_container" type="submit">Login</button>
                             <button class="buttons_container" type="button" onclick="redirectToRegister()">Register</button>
                         </form>

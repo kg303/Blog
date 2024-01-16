@@ -849,7 +849,32 @@ a:focus {
     justify-content: center;
     margin-top: 20px; /* Adjust as needed */
 }
+.black-text {
+    color: black;
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center-align the text */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    background-color: #ffe6e6;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ff9999;
+}
 
+.success {
+    color: green;
+    font-size: 14px;
+    margin-top: 5px;
+    background-color: #80f1a4;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #a8ff99;
+}
 /* footer section*/
 .footer_section {
   position: relative;
