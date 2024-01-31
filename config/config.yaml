@@ -10,9 +10,14 @@ pimcore:
         search_paths:
             - bundles/BlogListingBundle
 
+    security:
+        # the encoder factory as shipped by the CMF
+        password_hasher_factories:
+            Pimcore\Model\DataObject\Doctor: website_demo.security.password_hasher_factory
+
     models:
         class_overrides:
-            'Pimcore\Model\DataObject\User': 'App\Model\DataObject\User'
+            'Pimcore\Model\DataObject\User' : 'App\Model\DataObject\User'
 #            'Pimcore\Model\DataObject\Product': 'App\Model\DataObject\MyProduct'
 
     gotenberg:

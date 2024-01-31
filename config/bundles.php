@@ -5,6 +5,8 @@ use Web2PrintToolsBundle\Web2PrintToolsBundle;
 use Pimcore\Bundle\WebToPrintBundle\PimcoreWebToPrintBundle;
 use Pimcore\Bundle\DataHubBundle\PimcoreDataHubBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
+use \CustomerManagementFrameworkBundle\PimcoreCustomerManagementFrameworkBundle;
+use Pimcore\Bundle\ObjectMergerBundle\ObjectMergerBundle;
 
 
 
@@ -28,5 +30,8 @@ return [
     Pimcore\Bundle\EcommerceFrameworkBundle\PimcoreEcommerceFrameworkBundle::class => ['all' => true],
     Pimcore\Bundle\NewsletterBundle\PimcoreNewsletterBundle::class => ['all' => true],
     Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle::class => ['all' => true],
+    PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
+    ObjectMergerBundle::class => ['all' => true],
+    Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
     Pimcore\Bundle\XliffBundle\PimcoreXliffBundle::class => ['all' => true],
 ];

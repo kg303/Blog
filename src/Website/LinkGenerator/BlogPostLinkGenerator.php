@@ -72,10 +72,6 @@ class BlogPostLinkGenerator implements LinkGeneratorInterface
                 $fullPath = substr($document->getFullPath(), strlen($localeUrlPart));
             }
 
-//            if ($document && !$fullPath) {
-//                $fullPath = $document->getProperty('blog_post_default_document') ? substr($document->getProperty('blog_post_default_document')->getFullPath(), strlen($localeUrlPart)) : '';
-//            }
-
             $locale = $params['locale'] ?? null;
 
             return $this->pimcoreUrl->__invoke(

@@ -1,7 +1,5 @@
 <?php
 
-// src/YourBundle/Controller/RegisterController.php
-
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,11 +14,11 @@ class RegisterController extends AbstractController
     /**
      * @Route("/register", name="register")
      */
-    public function register(Request $request)
+    public function registerAction(Request $request)
     {
         if ($request->isMethod('POST')) {
             $username = $request->request->get('username');
-            $email = $request->request->get('email'); // Add this line to get the email
+            $email = $request->request->get('email');
             $password = $request->request->get('password');
 
             try {
@@ -34,7 +32,7 @@ class RegisterController extends AbstractController
                 $user->setKey(\Pimcore\Model\Element\Service::getValidKey($username, 'object'));
                 $user->setParentId(61);
                 $user->setUsername($username);
-                $user->setEmail($email); // Set the email value
+                $user->setEmail($email);
                 $user->setPassword($password);
 
                 // Check if the fields are empty
@@ -46,7 +44,7 @@ class RegisterController extends AbstractController
                 $user->save();
 
                 // Redirect to a success page or handle it accordingly
-                return $this->render('home/index.html.twig');
+                return $this->render('login/login.html.twig');
             } catch (\Exception $e) {
                 // Redirect back to registration form with an error message
                 return $this->render('login/register.html.twig', ['error' => $e->getMessage()]);
@@ -55,8 +53,6 @@ class RegisterController extends AbstractController
 
         return $this->render('login/register.html.twig');
     }
-
-
 
 
 }

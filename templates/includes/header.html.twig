@@ -70,12 +70,24 @@
                 </ul>
             </div>
             <div class="quote_btn-container">
-                <a href="{{ path('login') }}">
-                  <span>
-                    Login
-                  </span>
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                </a>
+
+                {% if app.user %}
+                    {# User is authenticated, show logout link #}
+                    <a href="{{ path('logout') }}">
+                        <span>
+                            Logout
+                        </span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </a>
+                {% else %}
+                    {# User is not authenticated, show login link #}
+                    <a href="{{ path('login') }}">
+                        <span>
+                            Login
+                        </span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </a>
+                {% endif %}
 
                 <form class="form-inline" action="{{ path('search') }}" method="get">
                     <input type="text" name="query" class="form-control" placeholder="Search">
@@ -83,6 +95,7 @@
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
+
             </div>
         </div>
     </nav>

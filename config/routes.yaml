@@ -12,14 +12,22 @@ search:
 
 login:
     path: /login
-    controller: App\Controller\LoginController::login
+    controller: App\Controller\LoginController::loginAction
 
 register:
     path: /register
-    controller: App\Controller\RegisterController::register
+    controller: App\Controller\RegisterController::registerAction
+
+logout:
+    path: /logout
+    controller: App\Controller\LoginController::logoutAction
 
 cartadd:
-    path: '/academy/cartadd/{id}'
-    controller: 'App\Controller\DefaultController::addToCartAction'
+    path: /academy/cartadd/{id}
+    controller: App\Controller\DefaultController::addToCartAction
     requirements:
-        id: '\d+'
+        id: \d+
+
+home:
+    path: /
+    controller: App\Controller\HomeController::homeAction

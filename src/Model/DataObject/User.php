@@ -1,24 +1,45 @@
 <?php
-// src/Model/DataOb
+
 
 namespace App\Model\DataObject;
 
+use Pimcore\Model\DataObject\ClassDefinition\Data\Selection;
+use Pimcore\Model\DataObject\ClassDefinition\Data\Password;
 use Pimcore\Model\DataObject\User as BaseUser;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class User extends BaseUser
+/**
+ * Custom user class for doctors, implementing Symfony's UserInterface.
+ */
+class User extends BaseUser implements UserInterface
 {
-    // ... other properties and methods ...
-
-    public function isValidCredentials($providedPassword): bool
+    /**
+     * Trigger the hash calculation to remove the plain text password from the instance.
+     *
+     * This is necessary to make sure no plain text passwords are serialized.
+     * @throws \Exception
+     */
+    public function eraseCredentials(): void
     {
-        // Implement your logic to validate whether the provided password matches
-        // the stored password for the user.
+        /** @var Password $field */
+        $field = $this->getClass()->getFieldDefinition('password');
+        $field->getDataForResource($this->getPassword(), $this);
+    }
 
-        // For example, assuming you store hashed passwords:
-        $storedPasswordHash = $this->getPassword(); // replace with the actual method to get the stored password hash
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
 
-        // Use a secure password hashing function (e.g., password_hash) for comparison
-        return password_verify($providedPassword, $storedPasswordHash);
+    public function getRoles(): array
+    {
+        return ['ROLE_ADMIN'];
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return 'username';
     }
 }
+
 

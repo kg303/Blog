@@ -891,3 +891,8 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+.white-link {
+    color: white;
+    text-decoration: none;
+}

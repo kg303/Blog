@@ -41,14 +41,7 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
-
-    Namespace\ImportService:
-        arguments:
-            - '@service_container'
-
-    website_demo.security.user_provider:
-        class: Pimcore\Security\User\ObjectUserProvider
+    Pimcore\Security\User\ObjectUserProvider:
         arguments: [ 'App\Model\DataObject\User', 'username' ]
 
     website_demo.security.password_hasher_factory:
@@ -56,6 +49,13 @@ services:
         arguments:
             - Pimcore\Security\Hasher\PasswordFieldHasher
             - [ 'password' ]
+
+    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
+
+    Namespace\ImportService:
+        arguments:
+            - '@service_container'
+
 
     #
     # CONTROLLERS
@@ -72,10 +72,12 @@ services:
         tags: [ 'controller.service_arguments' ]
 
 
+
     #
     # COMMANDS
     #
 
+    App\Form\LoginFormType: ~
 
 
     # auto-register all commands as services
@@ -105,6 +107,9 @@ services:
     # Services
     App\Service\Blog\:
         resource: '../src/Service/Blog/*'
+
+    App\Security\CustomAuthenticator:
+
 
     # Example custom templating helper
     # App\Templating\Helper\Example:

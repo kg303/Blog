@@ -5,35 +5,63 @@
     {% block content %}
         <section class="login_section info_section">
 
-        <h2 class="black-text">Login</h2>
             <div class="info_top ">
-                <div class="info_form">
 
-                    {% if errormessage is defined and errormessage %}
-                        <p class="error">{{ errormessage }}</p>
-                    {% endif %}
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                {% endif %}
 
-                    {% if successMessage is defined and successMessage %}
-                        <p class="success">{{ successMessage }}</p>
-                    {% endif %}
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
 
-                        <form method="post" action="{{ path('login') }}">
-                            <input type="text" name="username" placeholder="Username" class="input-field">
-                            <input type="password" name="password" placeholder="Password" class="input-field">
-                            <button class="buttons_container" type="submit">Login</button>
-                            <button class="buttons_container" type="button" onclick="redirectToRegister()">Register</button>
-                        </form>
-
-
+                {{ form_start(form, {'attr': {'class': 'info_form'}}) }}
+                <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4" style="color: black;">
+                        {{ 'Login to Your Account' | trans }}
+                    </h5>
+                    <p class="text-center small" style="color: black;">
+                        Enter your username & password to login
+                    </p>
                 </div>
-            </div>
 
-            <script>
-                function redirectToRegister() {
-                    window.location.href = "{{ path('register') }}";
-                }
-            </script>
+                <div class="col-12">
+                    <label for="_username" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="_username">@</span>
+                        {{ form_widget(form._username, { 'attr': {'placeholder': 'Username', 'class': 'input-field'}}) }}
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="yourPassword" class="form-label">Password</label>
+                    {{ form_widget(form._password, { 'attr': {'placeholder': 'Password', 'class': 'input-field'}}) }}
+                </div>
+
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
+
+                <div class="col-12">
+                    {{ form_row(form._submit, {'attr': {'class': 'buttons_container'}}) }}
+                </div>
+
+                <div class="col-12">
+                    <button class="buttons_container" type="button">
+                        <a href="{{ path('register') }}" class="white-link">
+                            {{ "Don't have an account? Register Now!" | trans }} </a>
+                    </button>
+                </div>
+
+                {{ form_end(form) }}
+
+            </div>
 
         </section>
 
     {% endblock %}
+
